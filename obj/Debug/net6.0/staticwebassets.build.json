@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iZstBuj9JaaJJq8rIv2Qdls1PN4fCLqFD2ktkB/6cAo=",
+  "Hash": "LTfrMwll0AG3RTT8e7UjdC48BeDDYA1kjenxjxO+ykc=",
   "Source": "MoneyManagementApp",
   "BasePath": "_content/MoneyManagementApp",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\MoneyManagementApp.styles.css",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "MoneyManagementApp.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\MoneyManagementApp.styles.css"
+    },
+    {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MoneyManagementApp.bundle.scp.css",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "MoneyManagementApp.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MoneyManagementApp.bundle.scp.css"
+    },
     {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\css\\site.css",
       "SourceId": "MoneyManagementApp",

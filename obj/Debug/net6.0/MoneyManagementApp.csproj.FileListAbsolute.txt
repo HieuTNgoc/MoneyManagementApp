@@ -265,3 +265,5 @@ D:\FPT-WorkSpace\PRN221\MoneyManagementApp\bin\Debug\net6.0\Swashbuckle.AspNetCo
 D:\FPT-WorkSpace\PRN221\MoneyManagementApp\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\FPT-WorkSpace\PRN221\MoneyManagementApp\obj\Debug\net6.0\MoneyManagementApp.MvcApplicationPartsAssemblyInfo.cs
 D:\FPT-WorkSpace\PRN221\MoneyManagementApp\bin\Debug\net6.0\ref\MoneyManagementApp.dll
+D:\FPT-WorkSpace\PRN221\MoneyManagementApp\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+D:\FPT-WorkSpace\PRN221\MoneyManagementApp\obj\Debug\net6.0\scopedcss\projectbundle\MoneyManagementApp.bundle.scp.css
