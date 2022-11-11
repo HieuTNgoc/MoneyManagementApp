@@ -1,0 +1,44 @@
+﻿@page
+@model MoneyManagementApp.Pages.User.EditModel
+
+<h4>Saver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Saver.UserId" />
+            <div class="form-group">
+                <label asp-for="Saver.Username" class="control-label"></label>
+                <input asp-for="Saver.Username" class="form-control" />
+                <span asp-validation-for="Saver.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Saver.Email" class="control-label"></label>
+                <input asp-for="Saver.Email" class="form-control" />
+                <span asp-validation-for="Saver.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Saver.Password" class="control-label"></label>
+                <input asp-for="Saver.Password" class="form-control" />
+                <span asp-validation-for="Saver.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Saver.Avatar" class="control-label"></label>
+                <input asp-for="Saver.Avatar" class="form-control" />
+                <span asp-validation-for="Saver.Avatar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model MoneyManagementApp.Pages.Category.EditModel
+
+<h4>Cate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Cate.CateId" />
+            <div class="form-group">
+                <label asp-for="Cate.CateName" class="control-label"></label>
+                <input asp-for="Cate.CateName" class="form-control" />
+                <span asp-validation-for="Cate.CateName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cate.Icon" class="control-label"></label>
+                <input asp-for="Cate.Icon" class="form-control" />
+                <span asp-validation-for="Cate.Icon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cate.Color" class="control-label"></label>
+                <input asp-for="Cate.Color" class="form-control" />
+                <span asp-validation-for="Cate.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cate.Type" class="control-label"></label>
+                <input asp-for="Cate.Type" class="form-control" />
+                <span asp-validation-for="Cate.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

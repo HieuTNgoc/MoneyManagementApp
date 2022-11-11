@@ -1,0 +1,59 @@
+﻿@page
+@model MoneyManagementApp.Pages.Transaction.EditModel
+
+<h4>Transction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Transction.Id" />
+            <div class="form-group">
+                <label asp-for="Transction.UserId" class="control-label"></label>
+                <select asp-for="Transction.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="Transction.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transction.CateId" class="control-label"></label>
+                <select asp-for="Transction.CateId" class="form-control" asp-items="ViewBag.CateId"></select>
+                <span asp-validation-for="Transction.CateId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transction.AccountId" class="control-label"></label>
+                <select asp-for="Transction.AccountId" class="form-control" asp-items="ViewBag.AccountId"></select>
+                <span asp-validation-for="Transction.AccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transction.Money" class="control-label"></label>
+                <input asp-for="Transction.Money" class="form-control" />
+                <span asp-validation-for="Transction.Money" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transction.Type" class="control-label"></label>
+                <input asp-for="Transction.Type" class="form-control" />
+                <span asp-validation-for="Transction.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transction.Datetime" class="control-label"></label>
+                <input asp-for="Transction.Datetime" class="form-control" />
+                <span asp-validation-for="Transction.Datetime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transction.Note" class="control-label"></label>
+                <input asp-for="Transction.Note" class="form-control" />
+                <span asp-validation-for="Transction.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

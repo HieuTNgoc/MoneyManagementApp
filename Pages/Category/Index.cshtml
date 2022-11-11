@@ -1,0 +1,48 @@
+﻿@page
+@model MoneyManagementApp.Pages.Category.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cate[0].CateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cate[0].Icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cate[0].Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cate[0].Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cate) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CateId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CateId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CateId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

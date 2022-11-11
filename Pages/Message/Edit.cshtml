@@ -1,0 +1,44 @@
+﻿@page
+@model MoneyManagementApp.Pages.Message.EditModel
+
+<h4>Mess</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Mess.Id" />
+            <div class="form-group">
+                <label asp-for="Mess.UserId1" class="control-label"></label>
+                <select asp-for="Mess.UserId1" class="form-control" asp-items="ViewBag.UserId1"></select>
+                <span asp-validation-for="Mess.UserId1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mess.UserId2" class="control-label"></label>
+                <select asp-for="Mess.UserId2" class="form-control" asp-items="ViewBag.UserId2"></select>
+                <span asp-validation-for="Mess.UserId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mess.Datetime" class="control-label"></label>
+                <input asp-for="Mess.Datetime" class="form-control" />
+                <span asp-validation-for="Mess.Datetime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mess.Note" class="control-label"></label>
+                <input asp-for="Mess.Note" class="form-control" />
+                <span asp-validation-for="Mess.Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
