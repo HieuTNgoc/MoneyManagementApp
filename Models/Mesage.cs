@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MoneyManagementApp.Models
 {
-    public partial class Mess
+    public partial class Mesage
     {
         public int Id { get; set; }
         public int? UserId1 { get; set; }

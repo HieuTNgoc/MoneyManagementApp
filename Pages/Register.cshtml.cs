@@ -11,9 +11,9 @@ namespace MoneyManagementApp.Pages
 {
     public class RegisterModel : PageModel
     {
-        private readonly MoneyManagementContext _context;
+        private readonly MoneyManagementV2Context _context;
 
-        public RegisterModel(MoneyManagementContext context)
+        public RegisterModel(MoneyManagementV2Context context)
         {
             _context = context;
         }

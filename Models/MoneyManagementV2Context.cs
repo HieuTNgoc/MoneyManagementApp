@@ -5,20 +5,20 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace MoneyManagementApp.Models
 {
-    public partial class MoneyManagementContext : DbContext
+    public partial class MoneyManagementV2Context : DbContext
     {
-        public MoneyManagementContext()
+        public MoneyManagementV2Context()
         {
         }
 
-        public MoneyManagementContext(DbContextOptions<MoneyManagementContext> options)
+        public MoneyManagementV2Context(DbContextOptions<MoneyManagementV2Context> options)
             : base(options)
         {
         }
 
         public virtual DbSet<Cate> Cates { get; set; } = null!;
         public virtual DbSet<Maccount> Maccounts { get; set; } = null!;
-        public virtual DbSet<Mess> Messes { get; set; } = null!;
+        public virtual DbSet<Mesage> Mesages { get; set; } = null!;
         public virtual DbSet<Saver> Savers { get; set; } = null!;
         public virtual DbSet<Transction> Transctions { get; set; } = null!;
 
@@ -43,9 +43,15 @@ namespace MoneyManagementApp.Models
                     .HasMaxLength(50)
                     .HasColumnName("cateName");
 
-                entity.Property(e => e.Color).HasColumnName("color");
+                entity.Property(e => e.Color)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("color");
 
-                entity.Property(e => e.Icon).HasColumnName("icon");
+                entity.Property(e => e.Icon)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("icon");
 
                 entity.Property(e => e.Type)
                     .HasColumnName("type")
@@ -55,7 +61,7 @@ namespace MoneyManagementApp.Models
             modelBuilder.Entity<Maccount>(entity =>
             {
                 entity.HasKey(e => e.AccountId)
-                    .HasName("PK__Account__F267251E5B87EEE0");
+                    .HasName("PK__MAccount__F267251E3679AFD5");
 
                 entity.ToTable("MAccount");
 
@@ -66,9 +72,15 @@ namespace MoneyManagementApp.Models
                     .IsUnicode(false)
                     .HasColumnName("accountName");
 
-                entity.Property(e => e.Color).HasColumnName("color");
+                entity.Property(e => e.Color)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("color");
 
-                entity.Property(e => e.Icon).HasColumnName("icon");
+                entity.Property(e => e.Icon)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("icon");
 
                 entity.Property(e => e.Money)
                     .HasColumnType("money")
@@ -79,12 +91,12 @@ namespace MoneyManagementApp.Models
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Maccounts)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Account__userId__3F466844");
+                    .HasConstraintName("FK__MAccount__userId__3E52440B");
             });
 
-            modelBuilder.Entity<Mess>(entity =>
+            modelBuilder.Entity<Mesage>(entity =>
             {
-                entity.ToTable("Mess");
+                entity.ToTable("Mesage");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -100,34 +112,32 @@ namespace MoneyManagementApp.Models
                 entity.Property(e => e.UserId2).HasColumnName("userId2");
 
                 entity.HasOne(d => d.UserId1Navigation)
-                    .WithMany(p => p.MessUserId1Navigations)
+                    .WithMany(p => p.MesageUserId1Navigations)
                     .HasForeignKey(d => d.UserId1)
-                    .HasConstraintName("FK__Mesage__userId1__48CFD27E");
+                    .HasConstraintName("FK__Mesage__userId1__47DBAE45");
 
                 entity.HasOne(d => d.UserId2Navigation)
-                    .WithMany(p => p.MessUserId2Navigations)
+                    .WithMany(p => p.MesageUserId2Navigations)
                     .HasForeignKey(d => d.UserId2)
-                    .HasConstraintName("FK__Mesage__userId2__49C3F6B7");
+                    .HasConstraintName("FK__Mesage__userId2__48CFD27E");
             });
 
             modelBuilder.Entity<Saver>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__User__CB9A1CFF18B70A0A");
+                    .HasName("PK__Saver__CB9A1CFFE00C4663");
 
                 entity.ToTable("Saver");
 
-                entity.HasIndex(e => e.Email, "UQ__User__AB6E616427399406")
+                entity.HasIndex(e => e.Email, "UQ__Saver__AB6E616431A8229C")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Username, "UQ__User__F3DBC57284F3D217")
+                entity.HasIndex(e => e.Username, "UQ__Saver__F3DBC5728ABBAB72")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("userId");
 
-                entity.Property(e => e.Avatar)
-                    .HasColumnType("image")
-                    .HasColumnName("avatar");
+                entity.Property(e => e.Avatar).HasColumnName("avatar");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
@@ -175,17 +185,17 @@ namespace MoneyManagementApp.Models
                 entity.HasOne(d => d.Account)
                     .WithMany(p => p.Transctions)
                     .HasForeignKey(d => d.AccountId)
-                    .HasConstraintName("FK__Transctio__accou__440B1D61");
+                    .HasConstraintName("FK__Transctio__accou__4316F928");
 
                 entity.HasOne(d => d.Cate)
                     .WithMany(p => p.Transctions)
                     .HasForeignKey(d => d.CateId)
-                    .HasConstraintName("FK__Transctio__cateI__4316F928");
+                    .HasConstraintName("FK__Transctio__cateI__4222D4EF");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Transctions)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Transctio__userI__4222D4EF");
+                    .HasConstraintName("FK__Transctio__userI__412EB0B6");
             });
 
             OnModelCreatingPartial(modelBuilder);

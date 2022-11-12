@@ -13,8 +13,8 @@ namespace MoneyManagementApp.Models
         public int AccountId { get; set; }
         public string? AccountName { get; set; }
         public decimal? Money { get; set; }
-        public int? Icon { get; set; }
-        public int? Color { get; set; }
+        public string? Icon { get; set; }
+        public string? Color { get; set; }
         public int? UserId { get; set; }
 
         public virtual Saver? User { get; set; }

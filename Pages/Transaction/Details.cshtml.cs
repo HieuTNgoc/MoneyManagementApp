@@ -11,9 +11,9 @@ namespace MoneyManagementApp.Pages.Transaction
 {
     public class DetailsModel : PageModel
     {
-        private readonly MoneyManagementApp.Models.MoneyManagementContext _context;
+        private readonly MoneyManagementV2Context _context;
 
-        public DetailsModel(MoneyManagementApp.Models.MoneyManagementContext context)
+        public DetailsModel(MoneyManagementV2Context context)
         {
             _context = context;
         }

@@ -12,9 +12,9 @@ namespace MoneyManagementApp.Pages.MoneyAccount
 {
     public class EditModel : PageModel
     {
-        private readonly MoneyManagementApp.Models.MoneyManagementContext _context;
+        private readonly MoneyManagementV2Context _context;
 
-        public EditModel(MoneyManagementApp.Models.MoneyManagementContext context)
+        public EditModel(MoneyManagementV2Context context)
         {
             _context = context;
         }

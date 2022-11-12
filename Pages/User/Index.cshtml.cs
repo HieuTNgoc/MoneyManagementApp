@@ -11,10 +11,10 @@ namespace MoneyManagementApp.Pages.User
 {
     public class IndexModel : PageModel
     {
-        private readonly MoneyManagementContext _context;
+        private readonly MoneyManagementV2Context _context;
         public IList<Saver> Saver { get; set; } = default!;
         
-        public IndexModel(MoneyManagementContext context)
+        public IndexModel(MoneyManagementV2Context context)
         {
             _context = context;
         }

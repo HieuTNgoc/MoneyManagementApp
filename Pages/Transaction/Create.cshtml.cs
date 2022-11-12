@@ -11,9 +11,9 @@ namespace MoneyManagementApp.Pages.Transaction
 {
     public class CreateModel : PageModel
     {
-        private readonly MoneyManagementApp.Models.MoneyManagementContext _context;
+        private readonly MoneyManagementV2Context _context;
 
-        public CreateModel(MoneyManagementApp.Models.MoneyManagementContext context)
+        public CreateModel(MoneyManagementV2Context context)
         {
             _context = context;
         }

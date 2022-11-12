@@ -11,9 +11,9 @@ namespace MoneyManagementApp.Pages.Transaction
 {
     public class DeleteModel : PageModel
     {
-        private readonly MoneyManagementApp.Models.MoneyManagementContext _context;
+        private readonly MoneyManagementV2Context _context;
 
-        public DeleteModel(MoneyManagementApp.Models.MoneyManagementContext context)
+        public DeleteModel(MoneyManagementV2Context context)
         {
             _context = context;
         }

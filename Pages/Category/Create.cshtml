@@ -12,7 +12,8 @@
                 <input asp-for="Cate.CateName" class="form-control" />
                 <span asp-validation-for="Cate.CateName" class="text-danger"></span>
             </div>
-
+            <input type="hidden" asp-for="Cate.Icon" />
+            <input type="hidden" asp-for="Cate.Color" />
             <body>
                 <div class="selector-container">
                     <span class="selector-label">Category Icon</span>
@@ -23,17 +24,6 @@
                     <div class="icons"></div>
                 </div>
             </body>
-
-            <div class="form-group">
-                <label asp-for="Cate.Icon" class="control-label"></label>
-                <input asp-for="Cate.Icon" class="form-control" />
-                <span asp-validation-for="Cate.Icon" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cate.Color" class="control-label"></label>
-                <input asp-for="Cate.Color" class="form-control" />
-                <span asp-validation-for="Cate.Color" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

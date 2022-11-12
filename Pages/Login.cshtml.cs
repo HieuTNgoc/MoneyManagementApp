@@ -7,9 +7,9 @@ namespace MoneyManagementApp.Pages
 {
     public class LoginModel : PageModel
     {
-        private readonly MoneyManagementContext _context;
+        private readonly MoneyManagementV2Context _context;
 
-        public LoginModel(MoneyManagementContext context)
+        public LoginModel(MoneyManagementV2Context context)
         {
             _context = context;
         }
