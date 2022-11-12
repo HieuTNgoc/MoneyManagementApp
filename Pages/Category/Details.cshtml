@@ -8,27 +8,28 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Cate.CateName)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-4">
             @Html.DisplayFor(model => model.Cate.CateName)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cate.Icon)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cate.Icon)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cate.Color)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cate.Color)
+        <dd class="col-sm-6">
+            <div class="selector-container">
+                <div class="selected-icon-container">
+                    <i class="material-icons selected-icon" style="background: @Model.Cate.Color">@Model.Cate.Icon</i>
+                </div>
+            </div>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Cate.Type)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cate.Type)
-        </dd>
+        @if (Model.Cate.Type == false)
+        {
+            <dd class="col-sm-10">Cost</dd>
+        }
+        @if (Model.Cate.Type == true)
+        {
+            <dd class="col-sm-10">Income</dd>
+        }
+
     </dl>
 </div>
 <div>

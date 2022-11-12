@@ -14,35 +14,41 @@
                 @Html.DisplayNameFor(model => model.Cate[0].Icon)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cate[0].Color)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Cate[0].Type)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Cate) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CateName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Icon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.CateId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.CateId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CateId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Cate)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CateName)
+                </td>
+                <td>
+                    <div class="selector-container">
+                        <div class="selected-icon-container">
+                            <i class="material-icons selected-icon" style="background: @item.Color">@item.Icon</i>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    @if (item.Type == false)
+                    {
+                        <dd class="col-sm-10">Cost</dd>
+                    }
+                    @if (item.Type == true)
+                    {
+                        <dd class="col-sm-10">Income</dd>
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.CateId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.CateId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.CateId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

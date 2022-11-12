@@ -4,6 +4,15 @@
 <div>
     <h4>Saver</h4>
     <hr />
+    <div class="personal-image">
+        <label class="label">
+            <input type="file" />
+            <figure class="personal-figure">
+                <img src="@Model.Saver.Avatar" class="personal-avatar" alt="avatar">
+                </figcaption>
+            </figure>
+        </label>
+    </div>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Saver.Username)
@@ -23,15 +32,63 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Saver.Password)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Saver.Avatar)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Saver.Avatar)
-        </dd>
     </dl>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Saver?.UserId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Logout">Logout</a>
 </div>
+<style>
+    .personal-image {
+        text-align: center;
+    }
+
+        .personal-image input[type="file"] {
+            display: none;
+        }
+
+    .personal-figure {
+        position: relative;
+        width: 120px;
+        height: 120px;
+    }
+
+    .personal-avatar {
+        cursor: pointer;
+        width: 120px;
+        height: 120px;
+        box-sizing: border-box;
+        border-radius: 100%;
+        border: 2px solid transparent;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+        transition: all ease-in-out .3s;
+    }
+
+        .personal-avatar:hover {
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+        }
+
+    .personal-figcaption {
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        width: inherit;
+        height: inherit;
+        border-radius: 100%;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0);
+        transition: all ease-in-out .3s;
+    }
+
+        .personal-figcaption:hover {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .personal-figcaption > img {
+            margin-top: 32.5px;
+            width: 50px;
+            height: 50px;
+        }
+</style>
+

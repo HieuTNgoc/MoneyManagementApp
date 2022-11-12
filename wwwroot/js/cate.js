@@ -80,6 +80,8 @@ $(document).ready(function () {
 
 			var hex = this.color.colors.HEX; // the RGB color in 0-255);
 			$elm.closest(".selector-container").find('i.material-icons.selected-icon').css("background", "#" + hex);
+			$('input[name="Cate.Color"]').val("#" + hex);
+			$('input[name="Cate.Icon"]').val($(".selector-container").find('i.material-icons.selected-icon').text());
 		}
 
 	});

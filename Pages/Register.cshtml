@@ -7,42 +7,61 @@
 
 <h1>Register</h1>
 
-<h4>Saver</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Saver.Username" class="control-label"></label>
-                <input asp-for="Saver.Username" class="form-control" />
-                <span asp-validation-for="Saver.Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Saver.Email" class="control-label"></label>
-                <input asp-for="Saver.Email" class="form-control" />
-                <span asp-validation-for="Saver.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Saver.Password" class="control-label"></label>
-                <input asp-for="Saver.Password" class="form-control" />
-                <span asp-validation-for="Saver.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Saver.Avatar" class="control-label"></label>
-                <input asp-for="Saver.Avatar" class="form-control" />
-                <span asp-validation-for="Saver.Avatar" class="text-danger"></span>
-            </div>
+<form method="post">
+    <section class="vh-88" style="scale: 0.9">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    @*Upload photo*@
+                    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                    <div class="file-upload">
+                        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+                        <div class="image-upload-wrap">
+                            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"  />
+                            <input type="hidden" asp-for="Saver.Avatar" />
+                            <div class="drag-text">
+                                <h3>Drag and drop a file or select add Image</h3>
+                            </div>
+                        </div>
+                        <div class="file-upload-content">
+                            <img class="file-upload-image" src="#" alt="your image" asp-for="Saver.Avatar" id="uploaed-img"/>
+                            <div class="image-title-wrap">
+                                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form1Example13" class="form-control form-control-lg" asp-for="Saver.Username" />
+                        <label class="form-label" for="form1Example13">Username</label>
+                    </div>
 
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form1Example13" class="form-control form-control-lg" asp-for="Saver.Email" />
+                        <label class="form-label" for="form1Example13">Email address</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form1Example23" class="form-control form-control-lg" asp-for="Saver.Password" />
+                        <label class="form-label" for="form1Example23">Password</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" value="Save" class="btn btn-primary btn-lg btn-block" style="width: 100%;margin-bottom: 10px">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }
