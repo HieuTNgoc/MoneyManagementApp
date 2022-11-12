@@ -12,6 +12,18 @@
                 <input asp-for="Cate.CateName" class="form-control" />
                 <span asp-validation-for="Cate.CateName" class="text-danger"></span>
             </div>
+
+            <body>
+                <div class="selector-container">
+                    <span class="selector-label">Category Icon</span>
+                    <div class="selected-icon-container">
+                        <i class="material-icons selected-icon">accessibility</i>
+                    </div>
+                    <div value="#000" class="selected-color"></div>
+                    <div class="icons"></div>
+                </div>
+            </body>
+
             <div class="form-group">
                 <label asp-for="Cate.Icon" class="control-label"></label>
                 <input asp-for="Cate.Icon" class="form-control" />
@@ -34,5 +46,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }

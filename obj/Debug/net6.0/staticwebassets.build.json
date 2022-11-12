@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "P/b4W0Uy4j687Qp4yGqcfK3JG8p7BIdXIAExr6ptHw8=",
+  "Hash": "EW1GvScYdUZlIZTUb/0rJX9cobsyBWKPaZMGhtfY/6M=",
   "Source": "MoneyManagementApp",
   "BasePath": "_content/MoneyManagementApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MoneyManagementApp.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\css\\cate.css",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "css/cate.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\cate.css"
     },
     {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\css\\login.css",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\js\\cate.js",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "js/cate.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cate.js"
     },
     {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\js\\site.js",
