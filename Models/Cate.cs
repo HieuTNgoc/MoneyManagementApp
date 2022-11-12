@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoneyManagementApp.Models
 {
@@ -11,8 +12,11 @@ namespace MoneyManagementApp.Models
         }
 
         public int CateId { get; set; }
+
         public string? CateName { get; set; }
+
         public int? Icon { get; set; }
+
         public int? Color { get; set; }
         public bool? Type { get; set; }
 

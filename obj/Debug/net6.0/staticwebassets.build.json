@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LTfrMwll0AG3RTT8e7UjdC48BeDDYA1kjenxjxO+ykc=",
+  "Hash": "P/b4W0Uy4j687Qp4yGqcfK3JG8p7BIdXIAExr6ptHw8=",
   "Source": "MoneyManagementApp",
   "BasePath": "_content/MoneyManagementApp",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MoneyManagementApp.bundle.scp.css"
     },
     {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\css\\login.css",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\css\\site.css",
       "SourceId": "MoneyManagementApp",
       "SourceType": "Discovered",
@@ -66,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\css\\user.css",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "css/user.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\user.css"
     },
     {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\favicon.ico",
@@ -100,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\js\\upload.js",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "js/upload.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\upload.js"
     },
     {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

@@ -9,6 +9,15 @@ builder.Services.AddDbContext<MoneyManagementContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MoneyManagementDB") ?? throw new InvalidOperationException("Connection string 'MoneyManagementDB' not found.")));
 
 
+// Add Session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,7 +30,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

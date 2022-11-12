@@ -11,21 +11,32 @@ namespace MoneyManagementApp.Pages.User
 {
     public class IndexModel : PageModel
     {
-        private readonly MoneyManagementApp.Models.MoneyManagementContext _context;
-
-        public IndexModel(MoneyManagementApp.Models.MoneyManagementContext context)
+        private readonly MoneyManagementContext _context;
+        public IList<Saver> Saver { get; set; } = default!;
+        
+        public IndexModel(MoneyManagementContext context)
         {
             _context = context;
         }
 
-        public IList<Saver> Saver { get;set; } = default!;
+        public Saver curr_account { get; set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (_context.Savers != null)
+            string curr_email = HttpContext.Session.GetString("UserName");
+            
+            curr_account = await _context.Savers.FirstOrDefaultAsync(m => m.Email.Equals(curr_email));
+            if (curr_account == null)
             {
-                Saver = await _context.Savers.ToListAsync();
+                return NotFound();
             }
+            //if (_context.Savers != null)
+            //{
+            //    Saver = await _context.Savers.ToListAsync();
+            //    return Page();
+            //}
+            return Redirect("/User/Details?id=" + curr_account.UserId);
         }
+
     }
 }

@@ -1,0 +1,43 @@
+﻿@page
+@model MoneyManagementApp.Pages.LoginModel
+@{
+    Layout = "_LayoutEmpty";
+}
+
+<section class="vh-88" style="scale: 0.9">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                     class="img-fluid" alt="Phone image">
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <form  method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form1Example13" class="form-control form-control-lg" asp-for="Saver.Email"/>
+                        <label class="form-label" for="form1Example13">Email address</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form1Example23" class="form-control form-control-lg"  asp-for="Saver.Password" />
+                        <label class="form-label" for="form1Example23">Password</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" value="Save" class="btn btn-primary btn-lg btn-block" style="width: 100%;margin-bottom: 10px">Sign in</button>
+                </form>
+                <div>
+                    <a asp-page="./Register">Register?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

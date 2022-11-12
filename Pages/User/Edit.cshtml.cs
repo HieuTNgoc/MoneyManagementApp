@@ -12,9 +12,9 @@ namespace MoneyManagementApp.Pages.User
 {
     public class EditModel : PageModel
     {
-        private readonly MoneyManagementApp.Models.MoneyManagementContext _context;
+        private readonly MoneyManagementContext _context;
 
-        public EditModel(MoneyManagementApp.Models.MoneyManagementContext context)
+        public EditModel(MoneyManagementContext context)
         {
             _context = context;
         }
@@ -38,8 +38,6 @@ namespace MoneyManagementApp.Pages.User
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
