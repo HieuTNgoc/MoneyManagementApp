@@ -16,39 +16,32 @@
             <th>
                 @Html.DisplayNameFor(model => model.Maccount[0].Icon)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Maccount[0].Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Maccount[0].User)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Maccount) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AccountName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Money)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Icon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.AccountId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.AccountId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.AccountId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Maccount)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Money)
+                </td>
+                <td>
+                    <div class="selector-container">
+                        <div class="selected-icon-container">
+                            <i class="material-icons selected-icon" style="background: @item.Color">@item.Icon</i>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.AccountId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.AccountId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.AccountId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MoneyManagementApp.Models;
 
 namespace MoneyManagementApp.Pages.MoneyAccount
@@ -18,27 +19,31 @@ namespace MoneyManagementApp.Pages.MoneyAccount
             _context = context;
         }
 
-        public IActionResult OnGet()
+        [BindProperty]
+        public Maccount Maccount { get; set; }
+        [BindProperty]
+        public Saver curr_account { get; set; }
+        public async Task<IActionResult> OnGet()
         {
-        ViewData["UserId"] = new SelectList(_context.Savers, "UserId", "UserId");
+            string curr_email = HttpContext.Session.GetString("UserName");
+            curr_account = await _context.Savers.FirstOrDefaultAsync(m => m.Email.Equals(curr_email));
+
+            if (curr_account == null)
+            {
+                return NotFound();
+            }
             return Page();
         }
 
-        [BindProperty]
-        public Maccount Maccount { get; set; }
         
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
+            string curr_email = HttpContext.Session.GetString("UserName");
+            curr_account = await _context.Savers.FirstOrDefaultAsync(m => m.Email.Equals(curr_email));
+            Maccount.UserId = curr_account.UserId;
+            
             _context.Maccounts.Add(Maccount);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }

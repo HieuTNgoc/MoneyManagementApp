@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MoneyManagementApp.Models;
 
 namespace MoneyManagementApp.Pages.Transaction
@@ -17,12 +18,16 @@ namespace MoneyManagementApp.Pages.Transaction
         {
             _context = context;
         }
+        [BindProperty]
+        public Saver curr_account { get; set; }
 
-        public IActionResult OnGet()
+        public IList<Cate> Cates { get; set; } = default!;
+        public IList<Maccount> Maccounts { get; set; } = default!;
+        public async Task<IActionResult> OnGet()
         {
-        ViewData["AccountId"] = new SelectList(_context.Maccounts, "AccountId", "AccountId");
-        ViewData["CateId"] = new SelectList(_context.Cates, "CateId", "CateId");
-        ViewData["UserId"] = new SelectList(_context.Savers, "UserId", "UserId");
+            Maccounts = await _context.Maccounts
+                .Include(m => m.User).ToListAsync();
+            Cates = await _context.Cates.ToListAsync();
             return Page();
         }
 
@@ -30,13 +35,11 @@ namespace MoneyManagementApp.Pages.Transaction
         public Transction Transction { get; set; }
         
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            string curr_email = HttpContext.Session.GetString("UserName");
+            curr_account = await _context.Savers.FirstOrDefaultAsync(m => m.Email.Equals(curr_email));
+            Transction.UserId = curr_account.UserId;
 
             _context.Transctions.Add(Transction);
             await _context.SaveChangesAsync();

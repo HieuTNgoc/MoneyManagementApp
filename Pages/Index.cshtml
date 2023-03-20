@@ -6,5 +6,94 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome @Html.DisplayFor(model => model.curr_account.Email)</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">@Model.curr_account.Email</a>.</p>
+    <div id="info">Hãy theo dõi tổng số tiền chi tiêu của bạn và lên kế hoạch chi tiêu hợp lý.</div>
 </div>
+<select class="form-control">
+
+    @foreach (var item in Model.Maccounts)
+    {
+        <option selected="selected" value="@item.AccountId">
+            @item.AccountName - @item.Money VND
+        </option>
+    }
+    <option selected="selected" value="0">
+        All Account - @Model.total VND
+    </option>
+</select>
+
+<canvas id="pieChart"></canvas>
+
+<div class="list-group">
+    @foreach (var item in Model.Cates)
+    {
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <dl class="row">
+                <dd class="col-sm-2">
+                    <div class="selector-container">
+                        <div class="selected-icon-container">
+                            <i class="material-icons selected-icon" style="background: @item.Color">@item.Icon</i>
+                        </div>
+                    </div>
+                </dd>
+                <dd class="col-sm-4">@item.CateName</dd>
+                <dt class="col-sm-2">xx%</dt>
+                <dt class="col-sm-2">xx VND</dt>
+            </dl>
+        </a>
+    }
+</div>
+
+<script>
+        $(document).ready(function () {
+        donutChart();
+
+        $(window).resize(function () {
+            window.barChart.redraw();
+            window.lineChart.redraw();
+            window.areaChart.redraw();
+            window.donutChart.redraw();
+        });
+    });
+
+    function donutChart() {
+        window.donutChart = Morris.Donut({
+            element: 'donut-chart',
+            data: [
+                { label: "Download Sales", value: 50 },
+                { label: "In-Store Sales", value: 25 },
+
+            ],
+            resize: true,
+            redraw: true
+        });
+    }
+</script>
+
+<style>
+    .morris-hover {
+  position:absolute;
+  z-index:1000;
+}
+
+.morris-hover.morris-default-style {     border-radius:10px;
+  padding:6px;
+  color:#666;
+  background:rgba(255, 255, 255, 0.8);
+  border:solid 2px rgba(230, 230, 230, 0.8);
+  font-family:sans-serif;
+  font-size:12px;
+  text-align:center;
+}
+
+.morris-hover.morris-default-style .morris-hover-row-label {
+  font-weight:bold;
+  margin:0.25em 0;
+}
+
+.morris-hover.morris-default-style .morris-hover-point {
+  white-space:nowrap;
+  margin:0.1em 0;
+}
+
+svg { width: 100%; }
+</style>

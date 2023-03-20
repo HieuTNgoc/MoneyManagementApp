@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EW1GvScYdUZlIZTUb/0rJX9cobsyBWKPaZMGhtfY/6M=",
+  "Hash": "41EkuDMK6yM0Mgvt8GYn6Qwjp/9LdC+l2i1TxbZvL3k=",
   "Source": "MoneyManagementApp",
   "BasePath": "_content/MoneyManagementApp",
   "Mode": "Default",
@@ -16,6 +16,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\noty.js",
+      "SourceId": "NToastNotify",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\",
+      "BasePath": "_content/NToastNotify",
+      "RelativePath": "noty.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\noty.js"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\toastr.js",
+      "SourceId": "NToastNotify",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Admin\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\",
+      "BasePath": "_content/NToastNotify",
+      "RelativePath": "toastr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Admin\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\toastr.js"
+    },
     {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\MoneyManagementApp.styles.css",
       "SourceId": "MoneyManagementApp",
@@ -151,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\cate.js"
+    },
+    {
+      "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\js\\chart.js",
+      "SourceId": "MoneyManagementApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\",
+      "BasePath": "_content/MoneyManagementApp",
+      "RelativePath": "js/chart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chart.js"
     },
     {
       "Identity": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\js\\site.js",

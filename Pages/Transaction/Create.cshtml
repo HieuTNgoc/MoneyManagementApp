@@ -7,17 +7,46 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Transction.UserId" />
             <div class="form-group">
-                <label asp-for="Transction.UserId" class="control-label"></label>
-                <select asp-for="Transction.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+                <label asp-for="Transction.Type" class="control-label"></label>
+                <select asp-for="Transction.Type" class="form-control">
+                    <option selected="selected" value="False">Cost</option>
+                    <option  value="True">Income</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label">Category</label>
+                <select asp-for="Transction.CateId" class ="form-control" >
+                @foreach (var item in Model.Cates)
+                {
+                    <option selected="selected" value="@item.CateId">
+                        @item.CateName
+                        @*<div class="selector-container">
+                            <div class="selected-icon-container">
+                                <i class="material-icons selected-icon" style="background: @item.Color">@item.Icon</i>
+                            </div>
+                        </div>*@
+                    </option>
+                }
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="Transction.CateId" class="control-label"></label>
-                <select asp-for="Transction.CateId" class ="form-control" asp-items="ViewBag.CateId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Transction.AccountId" class="control-label"></label>
-                <select asp-for="Transction.AccountId" class ="form-control" asp-items="ViewBag.AccountId"></select>
+                <label class="control-label">Account</label>
+                <select asp-for="Transction.AccountId" class ="form-control" >
+                @foreach (var item in Model.Maccounts)
+                {
+                    <option selected="selected" value="@item.AccountId">
+                        @item.AccountName
+                        @*<div class="selector-container">
+                            <div class="selected-icon-container">
+                                <i class="material-icons selected-icon" style="background: @item.Color">@item.Icon</i>
+                            </div>
+                        </div>*@
+                    </option>
+                }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Transction.Money" class="control-label"></label>
@@ -29,6 +58,7 @@
                 <input asp-for="Transction.Note" class="form-control" />
                 <span asp-validation-for="Transction.Note" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -41,5 +71,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }

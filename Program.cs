@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoneyManagementApp.Models;
+using NToastNotify;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +14,18 @@ builder.Services.AddDbContext<MoneyManagementV2Context>(options =>
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.IdleTimeout = TimeSpan.FromSeconds(1000);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+});
+
+// Add notify service
+builder.Services.AddRazorPages().AddNToastNotifyToastr(new ToastrOptions()
+{
+    ProgressBar = true,
+    PositionClass = ToastPositions.TopRight,
+    PreventDuplicates = true,
+    CloseButton = true,
 });
 
 var app = builder.Build();

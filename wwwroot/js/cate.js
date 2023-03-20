@@ -82,6 +82,8 @@ $(document).ready(function () {
 			$elm.closest(".selector-container").find('i.material-icons.selected-icon').css("background", "#" + hex);
 			$('input[name="Cate.Color"]').val("#" + hex);
 			$('input[name="Cate.Icon"]').val($(".selector-container").find('i.material-icons.selected-icon').text());
+			$('input[name="Maccount.Color"]').val("#" + hex);
+			$('input[name="Maccount.Icon"]').val($(".selector-container").find('i.material-icons.selected-icon').text());
 		}
 
 	});
