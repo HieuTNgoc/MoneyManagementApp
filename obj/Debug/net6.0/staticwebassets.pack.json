@@ -41,6 +41,22 @@
       "PackagePath": "staticwebassets\\js\\upload.js"
     },
     {
+      "Id": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\lib\\bootstrap-icons\\bootstrap-icons.svg",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\bootstrap-icons.svg"
+    },
+    {
+      "Id": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\lib\\bootstrap-icons\\font\\bootstrap-icons.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\font\\bootstrap-icons.min.css"
+    },
+    {
+      "Id": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\lib\\bootstrap-icons\\font\\fonts\\bootstrap-icons.woff",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\font\\fonts\\bootstrap-icons.woff"
+    },
+    {
+      "Id": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\lib\\bootstrap-icons\\font\\fonts\\bootstrap-icons.woff2",
+      "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\font\\fonts\\bootstrap-icons.woff2"
+    },
+    {
       "Id": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

@@ -294,3 +294,4 @@ D:\FPT-WorkSpace\PRN221\MoneyManagementApp\obj\Debug\net6.0\refint\MoneyManageme
 D:\FPT-WorkSpace\PRN221\MoneyManagementApp\obj\Debug\net6.0\MoneyManagementApp.pdb
 D:\FPT-WorkSpace\PRN221\MoneyManagementApp\obj\Debug\net6.0\MoneyManagementApp.genruntimeconfig.cache
 D:\FPT-WorkSpace\PRN221\MoneyManagementApp\obj\Debug\net6.0\ref\MoneyManagementApp.dll
+D:\FPT-WorkSpace\PRN221\MoneyManagementApp\bin\Debug\net6.0\libman.json
