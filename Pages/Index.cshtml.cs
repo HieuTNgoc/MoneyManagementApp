@@ -13,6 +13,7 @@ namespace MoneyManagementApp.Pages
         {
             _context = context;
         }
+        public Saver Saver { get; set; } = default!;
         public Saver curr_account { get; set; } = default!;
         public IList<Cate> Cates { get; set; } = default!;
         public IList<Maccount> Maccounts { get; set; } = default!;
@@ -21,12 +22,17 @@ namespace MoneyManagementApp.Pages
     
         public async Task<IActionResult> OnGetAsync()
         {
-            string curr_email = HttpContext.Session.GetString("UserName");
-            if (curr_email == null)
+            string currUser = HttpContext.Session.GetString("Username");
+            if (currUser == null)
             {
                 return Redirect("/Login");
             }
-            curr_account = await _context.Savers.FirstOrDefaultAsync(m => m.Email.Equals(curr_email));
+            Saver = await _context.Savers.FirstOrDefaultAsync(m => m.Username.Equals(currUser));
+            if (Saver == null)
+            {
+                return NotFound();
+            }
+
             Maccounts = await _context.Maccounts.ToListAsync();
             Cates = await _context.Cates.ToListAsync();
             Transctions = await _context.Transctions.ToListAsync();
@@ -50,11 +56,14 @@ namespace MoneyManagementApp.Pages
 
             total = total - cost + income;
 
-            if (curr_account == null)
-            {
-                return NotFound();
-            }
+            
             return Page();
+        }
+
+        public IActionResult OnGetLogout()
+        {
+            HttpContext.Session.Remove("Username");
+            return RedirectToPage("/Login");
         }
     }
 }

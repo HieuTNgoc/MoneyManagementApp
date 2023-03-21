@@ -12,7 +12,6 @@ namespace MoneyManagementApp.Pages
         private readonly MoneyManagementV2Context _context;
         private readonly IToastNotification _notify;
 
-
         public LoginModel(MoneyManagementV2Context context, IToastNotification notify)
         {
             _context = context;
@@ -21,9 +20,9 @@ namespace MoneyManagementApp.Pages
 
         [BindProperty]
         public Saver SaverLogin { get; set; }
-        public Saver Saver { get; set; } = default!;
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            return Page();
         }
         public async Task<IActionResult> OnPostAsync()
         {
@@ -31,20 +30,17 @@ namespace MoneyManagementApp.Pages
             {
                 return Page();
             }
-
-            bool islogin = _context.Savers.Any(u => u.Email.Equals(Saver.Email) && u.Password.Equals(Saver.Password));
-
-
-            if (!islogin)
+            var saver = _context.Savers.FirstOrDefault(u => u.Email.Equals(SaverLogin.Email) && u.Password.Equals(SaverLogin.Password));
+            if (saver != null)
             {
-                _notify.AddErrorToastMessage("Wrong Username or Password");
-                return Page();
+                HttpContext.Session.SetString("Username", saver.Username);
+                _notify.AddSuccessToastMessage("Login successfully.");
+                return RedirectToPage("/Index");
             }
             else
             {
-                HttpContext.Session.SetString("UserName", Saver.Email);
-                _notify.AddSuccessToastMessage("Login successfully.");
-                return RedirectToPage("/Index");
+                _notify.AddErrorToastMessage("Wrong Email or Password");
+                return Page();
             }
         }
     }
