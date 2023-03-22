@@ -50,9 +50,15 @@ namespace MoneyManagementApp.Pages.Transaction
                 return NotFound();
             }
             Transction = transction;
-           ViewData["AccountId"] = new SelectList(_context.Maccounts, "AccountId", "AccountId");
-           ViewData["CateId"] = new SelectList(_context.Cates, "CateId", "CateId");
-           ViewData["UserId"] = new SelectList(_context.Savers, "UserId", "UserId");
+            ViewData["AccountId"] = new SelectList(_context.Maccounts, "AccountId", "AccountName");
+            var cates = _context.Cates.ToList();
+            var new_cates = new List<Cate>();
+            foreach (var cate in cates)
+            {
+                cate.CateName = ((bool)cate.Type ? "Imcome - " : "Cost - ") + cate.CateName;
+                new_cates.Add(cate);
+            }
+            ViewData["CateId"] = new SelectList(new_cates, "CateId", "CateName");
             return Page();
         }
 

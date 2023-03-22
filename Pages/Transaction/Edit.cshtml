@@ -8,20 +8,16 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Transction.Id" />
-            <div class="form-group">
-                <label asp-for="Transction.UserId" class="control-label"></label>
-                <select asp-for="Transction.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="Transction.UserId" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Transction.UserId" />
+            <input type="hidden" asp-for="Transction.Type" />
+
             <div class="form-group">
                 <label asp-for="Transction.CateId" class="control-label"></label>
                 <select asp-for="Transction.CateId" class="form-control" asp-items="ViewBag.CateId"></select>
-                <span asp-validation-for="Transction.CateId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Transction.AccountId" class="control-label"></label>
                 <select asp-for="Transction.AccountId" class="form-control" asp-items="ViewBag.AccountId"></select>
-                <span asp-validation-for="Transction.AccountId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Transction.Money" class="control-label"></label>
@@ -29,18 +25,13 @@
                 <span asp-validation-for="Transction.Money" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Transction.Type" class="control-label"></label>
-                <input asp-for="Transction.Type" class="form-control" />
-                <span asp-validation-for="Transction.Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Transction.Datetime" class="control-label"></label>
-                <input asp-for="Transction.Datetime" class="form-control" />
+                <input class="form-control" asp-for="Transction.Datetime" asp-format="{0:yyyy-MM-ddTHH:mm}" />
                 <span asp-validation-for="Transction.Datetime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Transction.Note" class="control-label"></label>
-                <input asp-for="Transction.Note" class="form-control" />
+                <textarea asp-for="Transction.Note" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="Transction.Note" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -12,7 +12,14 @@
             @Html.DisplayFor(model => model.Transction.Money)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transction.Type)
+            @if (Model.Transction.Type == false)
+            {
+            <dd class="col-sm-10">Cost</dd>
+            }
+            @if (Model.Transction.Type == true)
+            {
+            <dd class="col-sm-10">Income</dd>
+            }
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Transction.Type)
@@ -24,28 +31,27 @@
             @Html.DisplayFor(model => model.Transction.Datetime)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transction.Note)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transction.Note)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Transction.Account)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transction.Account.AccountId)
+            @Html.DisplayFor(model => model.Transction.Account.AccountName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Transction.Cate)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transction.Cate.CateId)
+            @Html.DisplayFor(model => model.Transction.Cate.CateName)
+            <div class="selector-container">
+                <div class="selected-icon-container">
+                    <i class="material-icons selected-icon" style="background: @Model.Transction.Cate.Color">@Model.Transction.Cate.Icon</i>
+                </div>
+            </div>
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Transction.User)
+            @Html.DisplayNameFor(model => model.Transction.Note)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Transction.User.UserId)
+            @Html.DisplayFor(model => model.Transction.Note)
         </dd>
     </dl>
 </div>

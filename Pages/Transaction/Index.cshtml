@@ -8,10 +8,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Transction[0].Money)
+                @Html.DisplayNameFor(model => model.Transction[0].Type)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Transction[0].Type)
+                @Html.DisplayNameFor(model => model.Transction[0].Money)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Transction[0].Datetime)
@@ -25,42 +25,48 @@
             <th>
                 @Html.DisplayNameFor(model => model.Transction[0].Cate)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Transction[0].User)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Transction) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Money)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Datetime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Account.AccountId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cate.CateId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.UserId)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Transction)
+        {
+            <tr>
+                <td>
+                    @if (item.Type == false)
+                    {
+                        <dd class="col-sm-10">Cost</dd>
+                    }
+                    @if (item.Type == true)
+                    {
+                        <dd class="col-sm-10">Income</dd>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Money)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Account.AccountName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cate.CateName)
+                    <div class="selector-container">
+                        <div class="selected-icon-container">
+                            <i class="material-icons selected-icon" style="background: @item.Cate.Color">@item.Cate.Icon</i>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

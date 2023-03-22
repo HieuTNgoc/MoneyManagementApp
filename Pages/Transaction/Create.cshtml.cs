@@ -59,6 +59,8 @@ namespace MoneyManagementApp.Pages.Transaction
                 return Page();
             }
 
+            var cate = await _context.Cates.FirstOrDefaultAsync(m => m.CateId.Equals(Transactione.CateId));
+            Transactione.Type = cate.Type;
             _context.Transctions.Add(Transactione);
             var res = await _context.SaveChangesAsync();
             if (res > 0)
