@@ -21,9 +21,21 @@ namespace MoneyManagementApp.Pages.Category
 
         [BindProperty]
         public Cate Cate { get; set; } = default!;
+        public Saver Saver { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            string currUser = HttpContext.Session.GetString("Username");
+            if (currUser == null)
+            {
+                return Redirect("/Login");
+            }
+            Saver = await _context.Savers.FirstOrDefaultAsync(m => m.Username.Equals(currUser));
+            if (Saver == null)
+            {
+                return NotFound();
+            }
+
             if (id == null || _context.Cates == null)
             {
                 return NotFound();
