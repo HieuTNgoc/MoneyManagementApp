@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\js\\chart.js"
     },
     {
+      "Id": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\js\\currency.js",
+      "PackagePath": "staticwebassets\\js\\currency.js"
+    },
+    {
       "Id": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

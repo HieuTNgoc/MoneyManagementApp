@@ -27,9 +27,9 @@
                 <div class="selector-container">
                     <span class="selector-label">Money Account Icon</span>
                     <div class="selected-icon-container">
-                        <i class="material-icons selected-icon">add</i>
+                        <i class="material-icons selected-icon">@Model.Maccount.Icon</i>
                     </div>
-                    <div value="#000" class="selected-color"></div>
+                    <div value="@Model.Maccount.Color" class="selected-color"></div>
                     <div class="icons"></div>
                 </div>
             </body>
@@ -44,6 +44,15 @@
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>
+
+
+
+<script>
+    $(document).ready(function () {
+        var color = $(".selected-color").css("background");
+        $(".selected-icon-container i").css("background", color);
+    });
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

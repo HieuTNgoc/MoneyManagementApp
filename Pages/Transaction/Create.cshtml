@@ -7,10 +7,10 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Transction.UserId" />
+            <input type="hidden" asp-for="Transactione.UserId" />
             <div class="form-group">
-                <label asp-for="Transction.Type" class="control-label"></label>
-                <select asp-for="Transction.Type" class="form-control">
+                <label asp-for="Transactione.Type" class="control-label"></label>
+                <select asp-for="Transactione.Type" class="form-control">
                     <option selected="selected" value="False">Cost</option>
                     <option  value="True">Income</option>
                 </select>
@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <label  class="control-label">Category</label>
-                <select asp-for="Transction.CateId" class ="form-control" >
+                <select asp-for="Transactione.CateId" class="form-control">
                 @foreach (var item in Model.Cates)
                 {
                     <option selected="selected" value="@item.CateId">
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Account</label>
-                <select asp-for="Transction.AccountId" class ="form-control" >
+                <select asp-for="Transactione.AccountId" class="form-control">
                 @foreach (var item in Model.Maccounts)
                 {
                     <option selected="selected" value="@item.AccountId">
@@ -49,14 +49,14 @@
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="Transction.Money" class="control-label"></label>
-                <input asp-for="Transction.Money" class="form-control" />
-                <span asp-validation-for="Transction.Money" class="text-danger"></span>
+                <label asp-for="Transactione.Money" class="control-label"></label>
+                <input asp-for="Transactione.Money" class="form-control" />
+                <span asp-validation-for="Transactione.Money" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Transction.Note" class="control-label"></label>
-                <input asp-for="Transction.Note" class="form-control" />
-                <span asp-validation-for="Transction.Note" class="text-danger"></span>
+                <label asp-for="Transactione.Note" class="control-label"></label>
+                <input asp-for="Transactione.Note" class="form-control" />
+                <span asp-validation-for="Transactione.Note" class="text-danger"></span>
             </div>
 
             <div class="form-group">

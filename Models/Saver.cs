@@ -17,15 +17,15 @@ namespace MoneyManagementApp.Models
         public int UserId { get; set; }
         [Display(Name = "Username")]
         [Required(ErrorMessage = "Username is required")]
-        [StringLength(maximumLength: 255, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 255")]
+        [StringLength(maximumLength: 50, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 50")]
         public string? Username { get; set; }
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Email is required")]
-        [StringLength(maximumLength: 255, MinimumLength = 3, ErrorMessage = "Email must be between 3 and 255")]
+        [StringLength(maximumLength: 50, MinimumLength = 3, ErrorMessage = "Email must be between 3 and 50")]
         public string? Email { get; set; }
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Password is required")]
-        [StringLength(maximumLength: 255, MinimumLength = 3, ErrorMessage = "Password must be between 3 and 255")]
+        [StringLength(maximumLength: 50, MinimumLength = 3, ErrorMessage = "Password must be between 3 and 50")]
         public string Password { get; set; } = null!;
         [Display(Name = "Avatar")]
         public string? Avatar { get; set; }

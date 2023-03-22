@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoneyManagementApp.Models
 {
@@ -11,6 +12,9 @@ namespace MoneyManagementApp.Models
         }
 
         public int CateId { get; set; }
+        [Display(Name = "Category Name")]
+        [Required(ErrorMessage = "Category Name is required")]
+        [StringLength(maximumLength: 50, MinimumLength = 3, ErrorMessage = "Category Name must be between 3 and 50")]
         public string? CateName { get; set; }
         public string? Icon { get; set; }
         public string? Color { get; set; }
