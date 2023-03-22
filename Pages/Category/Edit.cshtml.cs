@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MoneyManagementApp.Models;
+using NToastNotify;
 
 namespace MoneyManagementApp.Pages.Category
 {
     public class EditModel : PageModel
     {
         private readonly MoneyManagementV2Context _context;
+        private readonly IToastNotification _notify;
 
-        public EditModel(MoneyManagementV2Context context)
+        public EditModel(MoneyManagementV2Context context, IToastNotification notify)
         {
             _context = context;
+            _notify = notify;
         }
 
         [BindProperty]
@@ -50,8 +53,6 @@ namespace MoneyManagementApp.Pages.Category
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -63,7 +64,15 @@ namespace MoneyManagementApp.Pages.Category
 
             try
             {
-                await _context.SaveChangesAsync();
+                var res = await _context.SaveChangesAsync();
+                if (res > 0)
+                {
+                    _notify.AddSuccessToastMessage("Update Category successfully.");
+                }
+                else
+                {
+                    _notify.AddErrorToastMessage("Update Category Failed!");
+                }
             }
             catch (DbUpdateConcurrencyException)
             {

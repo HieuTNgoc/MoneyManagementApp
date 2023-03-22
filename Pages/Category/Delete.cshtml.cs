@@ -67,7 +67,15 @@ namespace MoneyManagementApp.Pages.Category
             {
                 Cate = cate;
                 _context.Cates.Remove(Cate);
-                await _context.SaveChangesAsync();
+                var res = await _context.SaveChangesAsync();
+                if (res > 0)
+                {
+                    _notify.AddSuccessToastMessage("Remove Category successfully.");
+                }
+                else
+                {
+                    _notify.AddErrorToastMessage("Remove Category Failed!");
+                }
             }
 
             return RedirectToPage("./Index");

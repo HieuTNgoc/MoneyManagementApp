@@ -1,24 +1,22 @@
 ﻿@page
 @model MoneyManagementApp.Pages.Category.EditModel
 
-
-
-<h4>Edit Category</h4>
+<h4>Cate</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Cate.CateId" />
             <div class="form-group">
                 <label asp-for="Cate.CateName" class="control-label"></label>
                 <input asp-for="Cate.CateName" class="form-control" />
                 <span asp-validation-for="Cate.CateName" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="Cate.Type" class="control-label"></label>
                 <select asp-for="Cate.Type" class="form-control">
-                    <option selected="selected" value="False">Cost</option>
+                    <option value="False">Cost</option>
                     <option value="True">Income</option>
                 </select>
             </div>
@@ -28,12 +26,13 @@
                 <div class="selector-container">
                     <span class="selector-label">Category Icon</span>
                     <div class="selected-icon-container">
-                        <i class="material-icons selected-icon">add</i>
+                        <i class="material-icons selected-icon">@Model.Cate.Icon</i>
                     </div>
-                    <div value="#000" class="selected-color"></div>
+                    <div value="@Model.Cate.Color" class="selected-color"></div>
                     <div class="icons"></div>
                 </div>
             </body>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -45,6 +44,17 @@
     <a asp-page="./Index">Back to List</a>
 </div>
 
+
+<script>
+    $(document).ready(function () {
+        var color = $(".selected-color").css("background");
+        $(".selected-icon-container i").css("background",color);
+    });
+</script>
+
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -51,7 +51,15 @@ namespace MoneyManagementApp.Pages.Category
             }
 
             _context.Cates.Add(Cate);
-            await _context.SaveChangesAsync();
+            var res = await _context.SaveChangesAsync();
+            if (res > 0)
+            {
+                _notify.AddSuccessToastMessage("Add Category successfully.");
+            }
+            else
+            {
+                _notify.AddErrorToastMessage("Add Category Failed!");
+            }
 
             return RedirectToPage("./Index");
         }
