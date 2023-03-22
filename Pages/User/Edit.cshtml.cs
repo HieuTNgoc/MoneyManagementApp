@@ -84,7 +84,7 @@ namespace MoneyManagementApp.Pages.User
                 }
             }
 
-            return RedirectToPage("Index");
+            return RedirectToPage("../Index");
         }
 
         private bool SaverExists(int id)
