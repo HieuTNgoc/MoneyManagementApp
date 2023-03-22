@@ -34,11 +34,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-page="/Message/Index">Chats</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/User/Details" asp-route-id="@Model.Saver.UserId"><i class="bi bi-box-arrow-in-right"></i> @Model.Saver.Username</a>
+                        <li class="nav-item dropdown">
+                            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-check"></i>  @Model.Saver.Username
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link text-dark" asp-page="/User/Edit" asp-route-id="@Model.Saver.UserId">Edit Account</a></li>
+                                <li><a class="nav-link text-dark" asp-page="/User/ChangePass" asp-route-id="@Model.Saver.UserId">Change Password</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Index" asp-page-handler="logout"><i class="bi bi-person-check"></i>Logout</a>
+                            <a class="nav-link text-dark" asp-page="/Index" asp-page-handler="logout"><i class="bi bi-box-arrow-in-right"></i>  Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -56,8 +62,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/upload.js" asp-append-version="true"></script>
     <script src="~/js/cate.js" asp-append-version="true"></script>
-
-
 
     @await RenderSectionAsync("Scripts", required: false)
     @await Component.InvokeAsync("NToastNotify")

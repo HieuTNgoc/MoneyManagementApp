@@ -12,12 +12,12 @@ using NToastNotify;
 
 namespace MoneyManagementApp.Pages.User
 {
-    public class EditModel : PageModel
+    public class ChangePassModel : PageModel
     {
         private readonly MoneyManagementV2Context _context;
         private readonly IToastNotification _notify;
 
-        public EditModel(MoneyManagementV2Context context, IToastNotification notify)
+        public ChangePassModel(MoneyManagementV2Context context, IToastNotification notify)
         {
             _context = context;
             _notify = notify;
@@ -25,10 +25,16 @@ namespace MoneyManagementApp.Pages.User
 
         [BindProperty]
         public Saver Saver { get; set; } = default!;
+
         [BindProperty]
         [Required(ErrorMessage = "Confirm Password is required")]
         [StringLength(maximumLength: 255, MinimumLength = 3, ErrorMessage = "Confirm Password must be between 3 and 255")]
         public string OldPassword { get; set; } = default!;
+
+        [BindProperty]
+        [Required(ErrorMessage = "New Password is required")]
+        [StringLength(maximumLength: 255, MinimumLength = 3, ErrorMessage = "New Password must be between 3 and 255")]
+        public string NewPassword { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -50,13 +56,15 @@ namespace MoneyManagementApp.Pages.User
         {
             if (!OldPassword.Equals(Saver.Password))
             {
-                ModelState.AddModelError("OldPassword", "Confirm Password does not correct.");
+                ModelState.AddModelError("OldPassword", "Confirm Password does not correct!");
+                return Page();
             }
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
+            Saver.Password = NewPassword;
             _context.Attach(Saver).State = EntityState.Modified;
 
             try
@@ -64,12 +72,11 @@ namespace MoneyManagementApp.Pages.User
                 var res = await _context.SaveChangesAsync();
                 if (res > 0)
                 {
-                    _notify.AddSuccessToastMessage("Update account successfully.");
-                    HttpContext.Session.SetString("Username", Saver.Username);
+                    _notify.AddSuccessToastMessage("Update password successfully.");
                 }
                 else
                 {
-                    _notify.AddErrorToastMessage("Update account Failed!");
+                    _notify.AddErrorToastMessage("Update password Failed!");
                 }
             }
             catch (DbUpdateConcurrencyException)
@@ -84,7 +91,7 @@ namespace MoneyManagementApp.Pages.User
                 }
             }
 
-            return RedirectToPage("Index");
+            return RedirectToPage("../Index");
         }
 
         private bool SaverExists(int id)
