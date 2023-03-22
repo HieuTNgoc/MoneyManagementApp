@@ -4,12 +4,14 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome @Html.DisplayFor(model => model.Saver.Username)</h1>
+<div class="text-left">
+    <h3 class="display-4">Welcome @Html.DisplayFor(model => model.Saver.Username)</h3>
     <div id="info">Hãy theo dõi tổng số tiền chi tiêu của bạn và lên kế hoạch chi tiêu hợp lý.</div>
 </div>
-<select class="form-control">
-
+<select class="form-control" style="max-width: 520px;
+        background: burlywood;
+        font-weight: 700;
+        margin-top: 10px;">
     @foreach (var item in Model.Maccounts)
     {
         <option selected="selected" value="@item.AccountId">
@@ -21,9 +23,146 @@
     </option>
 </select>
 
-<canvas id="pieChart"></canvas>
+<div id="chartCostContainer" style="height: 370px; width: 50%; float: left; margin-top: 20px;"></div>
+<div id="chartIncomeContainer" style="height: 370px; width: 50%; float: left; margin-top: 20px;"></div>
+<div style="clear: both;"></div>
+<div id="chartContainer" style="height: 370px; width: 100%; display: block; margin: auto; margin-top: 20px;"></div>
 
-<div class="list-group">
+<script type="text/javascript">
+    window.onload = function () {
+        var optionCosts = {
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Cost (Chi)"
+            },
+            legend: {
+                horizontalAlign: "right",
+                verticalAlign: "center"
+            },
+            data: [{
+                type: "pie",
+                showInLegend: true,
+                toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+                indexLabel: "{name}",
+                legendText: "{name} (#percent%)",
+                indexLabelPlacement: "inside",
+                dataPoints: [
+                    { y: 6566.4, name: "Housing" },
+                    { y: 2599.2, name: "Food" },
+                    { y: 1231.2, name: "Fun" },
+                ]
+            }]
+        };
+        var optionIncomes = {
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Income (Thu)"
+            },
+            legend: {
+                horizontalAlign: "right",
+                verticalAlign: "center"
+            },
+            data: [{
+                type: "pie",
+                showInLegend: true,
+                toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+                indexLabel: "{name}",
+                legendText: "{name} (#percent%)",
+                indexLabelPlacement: "inside",
+                dataPoints: [
+                    { y: 1368, name: "Clothes" },
+                    { y: 684, name: "Others" },
+                    { y: 1231.2, name: "Utilities" }
+                ]
+            }]
+        };
+        $("#chartCostContainer").CanvasJSChart(optionCosts);
+        $("#chartIncomeContainer").CanvasJSChart(optionIncomes);
+
+        var options = {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Monthly Sales Comparison by Location"
+            },
+            axisY: {
+                title: "Revenue (in Pound Sterling)",
+                valueFormatString: "#0",
+                includeZero: true,
+                suffix: "K",
+                prefix: "£"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toogleDataSeries
+            },
+            toolTip: {
+                shared: true
+            },
+            data: [{
+                type: "area",
+                name: "London",
+                markerSize: 5,
+                showInLegend: true,
+                xValueFormatString: "MMMM",
+                yValueFormatString: "£#0K",
+                dataPoints: [
+                    { x: new Date(2017, 0), y: 12 },
+                    { x: new Date(2017, 1), y: 15 },
+                    { x: new Date(2017, 2), y: 12 },
+                    { x: new Date(2017, 3), y: 17 },
+                    { x: new Date(2017, 4), y: 20 },
+                    { x: new Date(2017, 5), y: 21 },
+                    { x: new Date(2017, 6), y: 24 },
+                    { x: new Date(2017, 7), y: 19 },
+                    { x: new Date(2017, 8), y: 22 },
+                    { x: new Date(2017, 9), y: 25 },
+                    { x: new Date(2017, 10), y: 21 },
+                    { x: new Date(2017, 11), y: 19 }
+                ]
+            }, {
+                type: "area",
+                name: "Manchester",
+                markerSize: 5,
+                showInLegend: true,
+                yValueFormatString: "£#0K",
+                dataPoints: [
+                    { x: new Date(2017, 0), y: 8 },
+                    { x: new Date(2017, 1), y: 12 },
+                    { x: new Date(2017, 2), y: 19 },
+                    { x: new Date(2017, 3), y: 19 },
+                    { x: new Date(2017, 4), y: 19 },
+                    { x: new Date(2017, 5), y: 29 },
+                    { x: new Date(2017, 6), y: 13 },
+                    { x: new Date(2017, 7), y: 9 },
+                    { x: new Date(2017, 8), y: 7 },
+                    { x: new Date(2017, 9), y: 14 },
+                    { x: new Date(2017, 10), y: 18 },
+                    { x: new Date(2017, 11), y: 14 }
+                ]
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
+
+        function toogleDataSeries(e) {
+            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            } else {
+                e.dataSeries.visible = true;
+            }
+            e.chart.render();
+        }
+    }
+    $(document).ready(function () {
+        $('.canvasjs-chart-credit').css('display', 'none');
+        $('.canvasjs-chart-toolbar').css('display', 'none');
+    });
+</script>
+
+
+<div class="list-group" style="margin-top: 20px;">
     @foreach (var item in Model.Cates)
     {
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
@@ -43,57 +182,4 @@
     }
 </div>
 
-<script>
-        $(document).ready(function () {
-        donutChart();
 
-        $(window).resize(function () {
-            window.barChart.redraw();
-            window.lineChart.redraw();
-            window.areaChart.redraw();
-            window.donutChart.redraw();
-        });
-    });
-
-    function donutChart() {
-        window.donutChart = Morris.Donut({
-            element: 'donut-chart',
-            data: [
-                { label: "Download Sales", value: 50 },
-                { label: "In-Store Sales", value: 25 },
-
-            ],
-            resize: true,
-            redraw: true
-        });
-    }
-</script>
-
-<style>
-    .morris-hover {
-  position:absolute;
-  z-index:1000;
-}
-
-.morris-hover.morris-default-style {     border-radius:10px;
-  padding:6px;
-  color:#666;
-  background:rgba(255, 255, 255, 0.8);
-  border:solid 2px rgba(230, 230, 230, 0.8);
-  font-family:sans-serif;
-  font-size:12px;
-  text-align:center;
-}
-
-.morris-hover.morris-default-style .morris-hover-row-label {
-  font-weight:bold;
-  margin:0.25em 0;
-}
-
-.morris-hover.morris-default-style .morris-hover-point {
-  white-space:nowrap;
-  margin:0.1em 0;
-}
-
-svg { width: 100%; }
-</style>
