@@ -40,10 +40,10 @@ namespace MoneyManagementApp.Pages.Category
 
         [BindProperty]
         public Cate Cate { get; set; }
-        
+
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }

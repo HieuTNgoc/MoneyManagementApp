@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,8 +8,11 @@ namespace MoneyManagementApp.Models
     public partial class Transction
     {
         public int Id { get; set; }
+        [Display(Name = "User")]
         public int? UserId { get; set; }
+        [Display(Name = "Category")]
         public int? CateId { get; set; }
+        [Display(Name = "Money Account")]
         public int? AccountId { get; set; }
 
         [Display(Name = "Money")]
@@ -20,7 +24,7 @@ namespace MoneyManagementApp.Models
         [Display(Name = "Datetime")]
         [Required(ErrorMessage = "Datetime is required")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+        [BindProperty, DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime? Datetime { get; set; }
         [Display(Name = "Note")]
         public string? Note { get; set; }

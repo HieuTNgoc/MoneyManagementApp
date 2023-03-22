@@ -21,9 +21,6 @@ namespace MoneyManagementApp.Pages.Transaction
             _context = context;
             _notify = notify;
         }
-
-        public IList<Cate> Cates { get; set; } = default!;
-        public IList<Maccount> Maccounts { get; set; } = default!;
         public Saver Saver { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -39,9 +36,15 @@ namespace MoneyManagementApp.Pages.Transaction
                 return NotFound();
             }
 
-            Maccounts = await _context.Maccounts
-                .Include(m => m.User).ToListAsync();
-            Cates = await _context.Cates.ToListAsync();
+            ViewData["AccountId"] = new SelectList(_context.Maccounts, "AccountId", "AccountName");
+            var cates = _context.Cates.ToList();
+            var new_cates = new List<Cate>();
+            foreach(var cate in cates)
+            {
+                cate.CateName =  ((bool)cate.Type ? "Imcome - " : "Cost - ") + cate.CateName;
+                new_cates.Add(cate);
+            }
+            ViewData["CateId"] = new SelectList(new_cates, "CateId", "CateName");
             return Page();
         }
 
