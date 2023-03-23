@@ -14,12 +14,11 @@ namespace MoneyManagementApp.Pages
             _context = context;
         }
         public Saver Saver { get; set; } = default!;
-        public Saver curr_account { get; set; } = default!;
         public IList<Cate> Cates { get; set; } = default!;
         public IList<Maccount> Maccounts { get; set; } = default!;
         public IList<Transction> Transctions { get; set; } = default!;
         public decimal total = 0, cost = 0, income = 0;
-    
+
         public async Task<IActionResult> OnGetAsync()
         {
             string currUser = HttpContext.Session.GetString("Username");
@@ -37,26 +36,26 @@ namespace MoneyManagementApp.Pages
             Cates = await _context.Cates.ToListAsync();
             Transctions = await _context.Transctions.ToListAsync();
 
-            foreach(var acc in Maccounts)
+            foreach (var acc in Maccounts)
             {
-                total = total + (decimal) acc.Money;
+                total = total + (decimal)acc.Money;
             }
 
-            foreach(var tran in Transctions)
+            foreach (var tran in Transctions)
             {
                 if (tran.Type == false)
                 {
-                    cost = cost + (decimal) tran.Money;
+                    cost = cost + (decimal)tran.Money;
                 }
                 else
                 {
-                    income = income + (decimal) tran.Money;
+                    income = income + (decimal)tran.Money;
                 }
             }
 
             total = total - cost + income;
 
-            
+
             return Page();
         }
 
@@ -65,5 +64,56 @@ namespace MoneyManagementApp.Pages
             HttpContext.Session.Remove("Username");
             return RedirectToPage("/Login");
         }
+
+        public async Task<IActionResult> OnGetFilter(int AccountId)
+        {
+            string currUser = HttpContext.Session.GetString("Username");
+            if (currUser == null)
+            {
+                return Redirect("/Login");
+            }
+            Saver = await _context.Savers.FirstOrDefaultAsync(m => m.Username.Equals(currUser));
+            if (Saver == null)
+            {
+                return NotFound();
+            }
+            Cates = await _context.Cates.ToListAsync();
+            var trans = from m in _context.Transctions select m;
+            if (AccountId != 0)
+            {
+                trans = trans.Where(m => m.AccountId == AccountId);
+            }
+            Transctions = await trans.Where(t => t.UserId == Saver.UserId).ToListAsync();
+
+
+            var data = new List<ChartObj>();
+            foreach (var acc in Cates)
+            {
+                var item = new ChartObj() { x = DateTime.Now, y = 0, name = "", type = false };
+                foreach (var tran in Transctions)
+                {
+                    if (acc.CateId == tran.CateId)
+                    {
+                        item.y += (int)tran.Money;
+                        item.x = (DateTime)tran.Datetime;
+                    }
+                }
+                if (item.y != 0)
+                {
+                    item.name = acc.CateName;
+                    item.type = (bool)acc.Type;
+                    data.Add(item);
+                }
+            }
+            return new JsonResult(data);
+        }
+    }
+
+    public class ChartObj
+    {
+        public DateTime x { get; set; }
+        public int y { get; set; }
+        public string name { get; set; }
+        public bool type { get; set; }
     }
 }

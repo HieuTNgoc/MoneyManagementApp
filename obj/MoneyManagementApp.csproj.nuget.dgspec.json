@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\MoneyManagementApp.csproj": {}
+    "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj": {}
   },
   "projects": {
-    "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\MoneyManagementApp.csproj": {
+    "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\MoneyManagementApp.csproj",
+        "projectUniqueName": "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj",
         "projectName": "MoneyManagementApp",
-        "projectPath": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\MoneyManagementApp.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT-WorkSpace\\PRN221\\MoneyManagementApp\\obj\\",
+        "projectPath": "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj",
+        "packagesPath": "C:\\Users\\Nhat Anh PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Nhat Anh PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
