@@ -33,6 +33,12 @@ function toogleDataSeries(e) {
 }
 
 function renderAreaChart(cost, income) {
+    cost.forEach(function (item) {
+        item.x = new Date(Date.parse(item.x));
+    });
+    income.forEach(function (item) {
+        item.x = new Date(Date.parse(item.x));
+    });
         var options = {
             animationEnabled: true,
             theme: "light2",
@@ -41,7 +47,7 @@ function renderAreaChart(cost, income) {
             },
             axisY: {
                 title: "Money",
-                valueFormatString: "#0",
+                valueFormatString: "#,##0",
                 includeZero: true,
                 suffix: "",
                 prefix: "$"
@@ -58,15 +64,16 @@ function renderAreaChart(cost, income) {
                 name: "Cost (Chi)",
                 markerSize: 5,
                 showInLegend: true,
-                xValueFormatString: "MMMM",
-                yValueFormatString: "$#0",
+                xValueFormatString: "MM/dd/yyyy hh:mm tt",
+                yValueFormatString: "$#,##0",
                 dataPoints: cost
             }, {
                 type: "area",
                 name: "Income (Thu)",
                 markerSize: 5,
                 showInLegend: true,
-                yValueFormatString: "$#0",
+                xValueFormatString: "MM/dd/yyyy hh:mm tt",
+                yValueFormatString: "$#,##0",
                 dataPoints: income
             }]
         };
