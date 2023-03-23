@@ -23,6 +23,60 @@ function renderPieChart(canvas, data, title) {
     $(canvas).CanvasJSChart(option);
 }
 
+function toogleDataSeries(e) {
+    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+    } else {
+        e.dataSeries.visible = true;
+    }
+    e.chart.render();
+}
+
+function renderAreaChart(cost, income) {
+        var options = {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Cost/Income by Time"
+            },
+            axisY: {
+                title: "Money",
+                valueFormatString: "#0",
+                includeZero: true,
+                suffix: "",
+                prefix: "$"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toogleDataSeries
+            },
+            toolTip: {
+                shared: true
+            },
+            data: [{
+                type: "area",
+                name: "Cost (Chi)",
+                markerSize: 5,
+                showInLegend: true,
+                xValueFormatString: "MMMM",
+                yValueFormatString: "$#0",
+                dataPoints: cost
+            }, {
+                type: "area",
+                name: "Income (Thu)",
+                markerSize: 5,
+                showInLegend: true,
+                yValueFormatString: "$#0",
+                dataPoints: income
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
+}
+
+    
+
+    
+
 function initChart() {
     $.ajax({
         type: "GET",
@@ -44,6 +98,7 @@ function initChart() {
             console.log("render chart finish");
             renderPieChart("#chartCostContainer", cost, "Cost (chi)");
             renderPieChart("#chartIncomeContainer", income, "Income (Thu)");
+            renderAreaChart(cost, income);
         }
     });
 }
