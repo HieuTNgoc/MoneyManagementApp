@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MoneyManagementApp.Models;
+using System;
 
 namespace MoneyManagementApp.Pages
 {
@@ -17,7 +18,7 @@ namespace MoneyManagementApp.Pages
         public IList<Cate> Cates { get; set; } = default!;
         public IList<Maccount> Maccounts { get; set; } = default!;
         public IList<Transction> Transctions { get; set; } = default!;
-        public decimal total = 0, cost = 0, income = 0;
+        public int total = 0, cost = 0, income = 0;
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -32,30 +33,45 @@ namespace MoneyManagementApp.Pages
                 return NotFound();
             }
 
-            Maccounts = await _context.Maccounts.ToListAsync();
+            Maccounts = await _context.Maccounts.Where(t => t.UserId == Saver.UserId).ToListAsync();
             Cates = await _context.Cates.ToListAsync();
-            Transctions = await _context.Transctions.ToListAsync();
+            Transctions = await _context.Transctions.Where(t => t.UserId == Saver.UserId).ToListAsync();
 
             foreach (var acc in Maccounts)
             {
-                total = total + (decimal)acc.Money;
+                foreach (var tran in Transctions)
+                {
+                    if (acc.AccountId == tran.AccountId)
+                    {
+
+                        if (tran.Type == false)
+                        {
+                            cost = cost + (int)tran.Money;
+                            acc.Money += tran.Money;
+                        }
+                        else
+                        {
+                            income = income + (int)tran.Money;
+                            acc.Money -= tran.Money;
+                        }
+                    }
+                }
+                total = total + (int)acc.Money;
             }
 
-            foreach (var tran in Transctions)
-            {
-                if (tran.Type == false)
-                {
-                    cost = cost + (decimal)tran.Money;
-                }
-                else
-                {
-                    income = income + (decimal)tran.Money;
-                }
-            }
+            //foreach (var tran in Transctions)
+            //{
+            //    if (tran.Type == false)
+            //    {
+            //        cost = cost + (int)tran.Money;
+            //    }
+            //    else
+            //    {
+            //        income = income + (int)tran.Money;
+            //    }
+            //}
 
             total = total - cost + income;
-
-
             return Page();
         }
 
@@ -83,8 +99,12 @@ namespace MoneyManagementApp.Pages
             {
                 trans = trans.Where(m => m.AccountId == AccountId);
             }
-            Transctions = await trans.Where(t => t.UserId == Saver.UserId).ToListAsync();
+            Transctions = await trans.Where(t => t.UserId == Saver.UserId).OrderByDescending(t => t.Datetime).ToListAsync();
 
+            List<Transction> SortedList = Transctions.OrderBy(t => t.Datetime).ToList();
+            SortedList.Sort(delegate (Transction tr1, Transction tr2) { return DateTime.Compare((DateTime)tr1.Datetime, (DateTime)tr2.Datetime); });
+
+            Transctions = SortedList;
 
             var data = new List<ChartObj>();
             int count_income = 0;
@@ -108,20 +128,21 @@ namespace MoneyManagementApp.Pages
                     if (item.type == false)
                     {
                         count_cost++;
-                    } else
+                    }
+                    else
                     {
                         count_income++;
                     }
                 }
             }
-                if (count_cost == 0)
-                {
-                    data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = false });
-                }
-                if (count_income == 0)
-                {
-                    data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = true });
-                }
+            if (count_cost == 0)
+            {
+                data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = false });
+            }
+            if (count_income == 0)
+            {
+                data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = true });
+            }
             return new JsonResult(data);
         }
     }

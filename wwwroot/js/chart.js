@@ -1,10 +1,18 @@
 ﻿
 function renderPieChart(canvas, data, title) {
+    var sum = 0;
+    data.forEach(function (item) {
+        sum += item.y;
+    });
+    if (sum == 1) {
+        sum = 0;
+    }
+
     var option = {
         exportEnabled: true,
         animationEnabled: true,
         title: {
-            text: title
+            text: title + ": " + (sum).toLocaleString('en-US', {style: 'currency', currency: 'USD',}),
         },
         legend: {
             horizontalAlign: "right",
@@ -33,6 +41,24 @@ function toogleDataSeries(e) {
 }
 
 function renderAreaChart(cost, income) {
+    cost.sort(function (a, b) {
+        var keyA = new Date(a.x),
+            keyB = new Date(b.x);
+        // Compare the 2 dates
+        if (keyA < keyB) return -1;
+        if (keyA > keyB) return 1;
+        return 0;
+    });
+
+    income.sort(function (a, b) {
+        var keyA = new Date(a.x),
+            keyB = new Date(b.x);
+        // Compare the 2 dates
+        if (keyA < keyB) return -1;
+        if (keyA > keyB) return 1;
+        return 0;
+    });
+
     cost.forEach(function (item) {
         item.x = new Date(Date.parse(item.x));
     });
@@ -64,7 +90,7 @@ function renderAreaChart(cost, income) {
                 name: "Cost (Chi)",
                 markerSize: 5,
                 showInLegend: true,
-                xValueFormatString: "MM/dd/yyyy hh:mm tt",
+                xValueFormatString: "MM/DD/YYYY hh:mm tt",
                 yValueFormatString: "$#,##0",
                 dataPoints: cost
             }, {
@@ -72,7 +98,7 @@ function renderAreaChart(cost, income) {
                 name: "Income (Thu)",
                 markerSize: 5,
                 showInLegend: true,
-                xValueFormatString: "MM/dd/yyyy hh:mm tt",
+                xValueFormatString: "MM/DD/YYYY hh:mm tt",
                 yValueFormatString: "$#,##0",
                 dataPoints: income
             }]
