@@ -87,6 +87,8 @@ namespace MoneyManagementApp.Pages
 
 
             var data = new List<ChartObj>();
+            int count_income = 0;
+            int count_cost = 0;
             foreach (var acc in Cates)
             {
                 var item = new ChartObj() { x = DateTime.Now, y = 0, name = "", type = false };
@@ -103,8 +105,23 @@ namespace MoneyManagementApp.Pages
                     item.name = acc.CateName;
                     item.type = (bool)acc.Type;
                     data.Add(item);
+                    if (item.type == false)
+                    {
+                        count_cost++;
+                    } else
+                    {
+                        count_income++;
+                    }
                 }
             }
+                if (count_cost == 0)
+                {
+                    data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = false });
+                }
+                if (count_income == 0)
+                {
+                    data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = true });
+                }
             return new JsonResult(data);
         }
     }

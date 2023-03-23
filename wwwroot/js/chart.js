@@ -38,13 +38,6 @@ function initChart() {
                     cost.push(item);
                 }
             });
-            var blank = {"y":0, "name":"Empty"};
-            if (cost.length < 1) {
-                cost.push(blank);
-            }
-            if (income.length < 1) {
-                income.push(blank);
-            }
             console.log(response);
             console.log(income);
             console.log(cost);

@@ -9,11 +9,11 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MoneyManagementApp
 build_property.RootNamespace = MoneyManagementApp
-build_property.ProjectDir = C:\Users\Nhat Anh PC\source\repos\HieuTNgoc\MoneyManagementApp\
+build_property.ProjectDir = C:\Users\Nhat Anh PC\Source\Repos\HieuTNgoc\MoneyManagementApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Nhat Anh PC\source\repos\HieuTNgoc\MoneyManagementApp
+build_property.MSBuildProjectDirectory = C:\Users\Nhat Anh PC\Source\Repos\HieuTNgoc\MoneyManagementApp
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Category/Create.cshtml]
