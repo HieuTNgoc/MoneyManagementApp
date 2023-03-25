@@ -16,6 +16,8 @@ namespace MoneyManagementApp.Hubs
         }
         public static int notificationCounter = 0;
         public static List<string> messages = new();
+        public static List<int> accountIds = new();
+
 
         public async Task SendMessage(string message)
         {
@@ -32,14 +34,23 @@ namespace MoneyManagementApp.Hubs
         {
             int id = int.Parse(userId);
             Maccount = await _context.Maccounts.Where(t => t.UserId == id).ToListAsync();
+            notificationCounter = 0;
+            messages = new();
+            accountIds = new();
 
-            notificationCounter++;
-            messages.Add("Test noti");
+            foreach (var m in Maccount) { 
+                if (m.Money < 10000)
+                {
+                    notificationCounter++;
+                    messages.Add("Tài khoản " + m.AccountName + " còn dưới $10,000 hãy bổ xung ngay.");
+                    accountIds.Add(m.AccountId);
+                }
+            }
             await LoadMessages();
         }
         public async Task LoadMessages()
         {
-            await Clients.All.SendAsync("LoadNotification", messages, notificationCounter);
+            await Clients.All.SendAsync("LoadNotification", messages, accountIds, notificationCounter);
         }
     }
 }

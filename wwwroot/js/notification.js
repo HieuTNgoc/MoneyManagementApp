@@ -3,14 +3,15 @@ var connectionNotification = new signalR.HubConnectionBuilder()
     .withUrl("/hubs/notification").build();
 
 
-connectionNotification.on("LoadNotification", function (message, counter) {
+connectionNotification.on("LoadNotification", function (message, accountId, counter) {
     console.log(message);
+    console.log(accountId);
     console.log(counter);
     console.log("Noti...");
     var counter_html = "<span>(" + counter + ")</span>";
     var noti_html = "";
-    for (let i = message.length - 1; i >= 0; i--) {
-        noti_html += "<li>Notification - " + message[i] + "</li>";
+    for (let i = message.length - 1; i >= 0; i--) {  
+        noti_html += '<a class="nav-link text-dark" href="/MoneyAccont/Detail?id=' + accountId[i] + '">Notification - ' + message[i] + '</a>';
     }
     console.log(counter_html);
     console.log(noti_html);
