@@ -9,129 +9,129 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MoneyManagementApp
 build_property.RootNamespace = MoneyManagementApp
-build_property.ProjectDir = C:\Users\Nhat Anh PC\Source\Repos\HieuTNgoc\MoneyManagementApp\
+build_property.ProjectDir = D:\FPT-WorkSpace\PRN221\HieuTNgoc\MoneyManagementApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Nhat Anh PC\Source\Repos\HieuTNgoc\MoneyManagementApp
+build_property.MSBuildProjectDirectory = D:\FPT-WorkSpace\PRN221\HieuTNgoc\MoneyManagementApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Category/Create.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Category/Delete.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Category/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Category/Details.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Category/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Category/Edit.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Category/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Category/Index.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Error.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Index.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Login.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Create.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uZXlBY2NvdW50XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Delete.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uZXlBY2NvdW50XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Details.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uZXlBY2NvdW50XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Edit.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uZXlBY2NvdW50XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Index.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/MoneyAccount/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uZXlBY2NvdW50XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Register.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Shared/_LayoutEmpty.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Shared/_LayoutEmpty.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRFbXB0eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Create.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Delete.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Details.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Edit.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Index.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Transaction/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/User/ChangePass.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/User/ChangePass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDaGFuZ2VQYXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/User/Create.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/User/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/User/Details.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/User/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/User/Edit.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/User/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/User/Index.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/_ValidationScriptsPartial.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/_ViewImports.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/_ViewStart.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nhat Anh PC/Source/Repos/HieuTNgoc/MoneyManagementApp/Pages/Shared/_Layout.cshtml]
+[D:/FPT-WorkSpace/PRN221/HieuTNgoc/MoneyManagementApp/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zdbtvncyb7

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj": {}
+    "D:\\FPT-WorkSpace\\PRN221\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj": {
+    "D:\\FPT-WorkSpace\\PRN221\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj",
+        "projectUniqueName": "D:\\FPT-WorkSpace\\PRN221\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj",
         "projectName": "MoneyManagementApp",
-        "projectPath": "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj",
-        "packagesPath": "C:\\Users\\Nhat Anh PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nhat Anh PC\\Source\\Repos\\HieuTNgoc\\MoneyManagementApp\\obj\\",
+        "projectPath": "D:\\FPT-WorkSpace\\PRN221\\HieuTNgoc\\MoneyManagementApp\\MoneyManagementApp.csproj",
+        "packagesPath": "C:\\Users\\Nhat Anh\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT-WorkSpace\\PRN221\\HieuTNgoc\\MoneyManagementApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nhat Anh PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nhat Anh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
