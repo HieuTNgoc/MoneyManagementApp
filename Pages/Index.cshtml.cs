@@ -32,46 +32,11 @@ namespace MoneyManagementApp.Pages
             {
                 return NotFound();
             }
-
             Maccounts = await _context.Maccounts.Where(t => t.UserId == Saver.UserId).ToListAsync();
-            Cates = await _context.Cates.ToListAsync();
-            Transctions = await _context.Transctions.Where(t => t.UserId == Saver.UserId).ToListAsync();
-
             foreach (var acc in Maccounts)
             {
-                foreach (var tran in Transctions)
-                {
-                    if (acc.AccountId == tran.AccountId)
-                    {
-
-                        if (tran.Type == false)
-                        {
-                            cost = cost + (int)tran.Money;
-                            acc.Money += tran.Money;
-                        }
-                        else
-                        {
-                            income = income + (int)tran.Money;
-                            acc.Money -= tran.Money;
-                        }
-                    }
-                }
                 total = total + (int)acc.Money;
             }
-
-            //foreach (var tran in Transctions)
-            //{
-            //    if (tran.Type == false)
-            //    {
-            //        cost = cost + (int)tran.Money;
-            //    }
-            //    else
-            //    {
-            //        income = income + (int)tran.Money;
-            //    }
-            //}
-
-            total = total - cost + income;
             return Page();
         }
 

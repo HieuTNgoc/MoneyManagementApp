@@ -50,7 +50,16 @@ namespace MoneyManagementApp.Pages.Transaction
                 return NotFound();
             }
             Transction = transction;
-            ViewData["AccountId"] = new SelectList(_context.Maccounts, "AccountId", "AccountName");
+
+            var accounts = _context.Maccounts.Where(t => t.UserId == Saver.UserId);
+            var new_accounts = new List<Maccount>();
+            foreach (var account in accounts)
+            {
+                account.AccountName = account.AccountName + " - " + String.Format("{0:C}", account.Money);
+                new_accounts.Add(account);
+            }
+            ViewData["AccountId"] = new SelectList(new_accounts, "AccountId", "AccountName");
+
             var cates = _context.Cates.ToList();
             var new_cates = new List<Cate>();
             foreach (var cate in cates)
@@ -69,7 +78,26 @@ namespace MoneyManagementApp.Pages.Transaction
             {
                 return Page();
             }
+            var cate = await _context.Cates.FirstOrDefaultAsync(m => m.CateId.Equals(Transction.CateId));
+            var tran = await _context.Transctions.FirstOrDefaultAsync(m => m.Id == Transction.Id);
+            var maccount = await _context.Maccounts.FirstOrDefaultAsync(m => m.AccountId == Transction.AccountId);
+            if (cate.Type == true)
+            {
+                maccount.Money -= tran.Money;
+                maccount.Money += Transction.Money;
+            }
+            else
+            {
+                maccount.Money += tran.Money;
+                maccount.Money -= Transction.Money;
+            }
 
+            if (maccount.Money < 0)
+            {
+                ModelState.AddModelError("Transction.AccountId", "Tài khoản không đủ.");
+                return Page();
+            }
+            _context.Attach(maccount).State = EntityState.Modified;
             _context.Attach(Transction).State = EntityState.Modified;
 
             try

@@ -68,6 +68,17 @@ namespace MoneyManagementApp.Pages.Transaction
             if (transction != null)
             {
                 Transction = transction;
+                var cate = await _context.Cates.FirstOrDefaultAsync(m => m.CateId.Equals(Transction.CateId));
+                var maccount = await _context.Maccounts.FirstOrDefaultAsync(m => m.AccountId == Transction.AccountId);
+                if (cate.Type == true)
+                {
+                    maccount.Money -= Transction.Money;
+                }
+                else
+                {
+                    maccount.Money += Transction.Money;
+                }
+                _context.Attach(maccount).State = EntityState.Modified;
                 _context.Transctions.Remove(Transction);
                 var res = await _context.SaveChangesAsync();
                 if (res > 0)

@@ -36,12 +36,19 @@ namespace MoneyManagementApp.Pages.Transaction
                 return NotFound();
             }
 
-            ViewData["AccountId"] = new SelectList(_context.Maccounts, "AccountId", "AccountName");
+            var accounts = _context.Maccounts.Where(t => t.UserId == Saver.UserId);
+            var new_accounts = new List<Maccount>();
+            foreach (var account in accounts)
+            {
+                account.AccountName = account.AccountName + " - " + String.Format("{0:C}", account.Money);
+                new_accounts.Add(account);
+            }
+            ViewData["AccountId"] = new SelectList(new_accounts, "AccountId", "AccountName");
             var cates = _context.Cates.ToList();
             var new_cates = new List<Cate>();
-            foreach(var cate in cates)
+            foreach (var cate in cates)
             {
-                cate.CateName =  ((bool)cate.Type ? "Imcome - " : "Cost - ") + cate.CateName;
+                cate.CateName = ((bool)cate.Type ? "Imcome - " : "Cost - ") + cate.CateName;
                 new_cates.Add(cate);
             }
             ViewData["CateId"] = new SelectList(new_cates, "CateId", "CateName");
@@ -50,7 +57,7 @@ namespace MoneyManagementApp.Pages.Transaction
 
         [BindProperty]
         public Transction Transactione { get; set; }
-        
+
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -58,10 +65,26 @@ namespace MoneyManagementApp.Pages.Transaction
             {
                 return Page();
             }
-
             var cate = await _context.Cates.FirstOrDefaultAsync(m => m.CateId.Equals(Transactione.CateId));
+            var maccount = await _context.Maccounts.FirstOrDefaultAsync(m => m.AccountId == Transactione.AccountId);
+            if (maccount.Money < Transactione.Money && cate.Type == false)
+            {
+                ModelState.AddModelError("Transactione.AccountId", "Tài khoản không đủ.");
+                return Page();
+            };
+
             Transactione.Type = cate.Type;
+            if (cate.Type == true)
+            {
+                maccount.Money += Transactione.Money;
+            }
+            else
+            {
+                maccount.Money -= Transactione.Money;
+            }
+
             _context.Transctions.Add(Transactione);
+            _context.Attach(maccount).State = EntityState.Modified;
             var res = await _context.SaveChangesAsync();
             if (res > 0)
             {
