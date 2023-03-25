@@ -6,14 +6,17 @@ var connectionNotification = new signalR.HubConnectionBuilder()
 connectionNotification.on("LoadNotification", function (message, counter) {
     console.log(message);
     console.log(counter);
-    consolelog("Noti...");
-    $("#messageList").html("");
-    $("#notificationCounter").html("<span>(" + counter + ")</span>");
+    console.log("Noti...");
+    var counter_html = "<span>(" + counter + ")</span>";
+    var noti_html = "";
     for (let i = message.length - 1; i >= 0; i--) {
-        var li = document.createElement("li");
-        li.textContent = "Notification - " + message[i];
-        $("#messageList").append(li);
+        noti_html += "<li>Notification - " + message[i] + "</li>";
     }
+    console.log(counter_html);
+    console.log(noti_html);
+    $("#messageList").html(noti_html);
+    $("#notificationCounter").html(counter_html);
+    console.log("Noti...done");
 });
 
 connectionNotification.start().then(function () {
