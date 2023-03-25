@@ -5,8 +5,8 @@
 }
 
 <div class="text-left">
-    <h3 class="display-4">Welcome @Html.DisplayFor(model => model.Saver.Username)</h3>
-    <div id="info">Hãy theo dõi tổng số tiền chi tiêu của bạn và lên kế hoạch chi tiêu hợp lý.</div>
+    <h4>Welcome @Html.DisplayFor(model => model.Saver.Username)</h4>
+    <div class="fst-italic" id="info">Hãy theo dõi tổng số tiền chi tiêu của bạn và lên kế hoạch chi tiêu hợp lý.</div>
 </div>
 <select id="AccountId" class="form-control" style="max-width: 520px;
         background: burlywood;
@@ -24,7 +24,7 @@
 </select>
 <hr />
 
-<div id="chartCostContainer" style="height: 370px; width: 50%; float: left; margin-top: 40px;"></div>
+<div id="chartCostContainer" style="height: 370px; width: 50%; float: left; margin-top: 50px; margin-bottom: 50px;"></div>
 <div id="chartIncomeContainer" style="height: 370px; width: 50%; float: left; margin-top: 40px;"></div>
 <div style="clear: both;"></div>
 <hr />

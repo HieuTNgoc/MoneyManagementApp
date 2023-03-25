@@ -24,40 +24,40 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3 bg-success p-2">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">MoneyManagement</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand text-white" asp-area="" asp-page="/Index">MoneyManagement</a>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon text-white"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/MoneyAccount/Index">Money Account</a>
+                            <a class="nav-link text-white" asp-page="/MoneyAccount/Index">Money Account</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Transaction/Index">Trannsaction</a>
+                            <a class="nav-link text-white" asp-page="/Transaction/Index">Trannsaction</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Category/Index">Category</a>
+                            <a class="nav-link text-white" asp-page="/Category/Index">Category</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown text-white">
+                            <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-check"></i>  @Model.Saver.Username
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link text-dark" asp-page="/User/Edit" asp-route-id="@Model.Saver.UserId">Edit Account</a></li>
-                                <li><a class="nav-link text-dark" asp-page="/User/ChangePass" asp-route-id="@Model.Saver.UserId">Change Password</a></li>
-                                <li><a class="nav-link text-dark" asp-page="/Index" asp-page-handler="logout"><i class="bi bi-box-arrow-in-right"></i> Logout</a></li>
+                            <ul class="dropdown-menu" style="min-width: 250px;">
+                                <li><a class="nav-link text-dark" asp-page="/User/Edit" asp-route-id="@Model.Saver.UserId"><i class="bi bi-person-rolodex"></i> Edit Account</a></li>
+                                <li><a class="nav-link text-dark" asp-page="/User/ChangePass" asp-route-id="@Model.Saver.UserId"><i class="bi bi-pencil-square"></i> Change Password</a></li>
+                                <li><a class="nav-link text-dark" asp-page="/Index" asp-page-handler="logout"><i class="bi bi-door-open-fill"></i> Logout</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown text-white">
+                            <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span id="notificationBell"> <i class="bi bi-bell"></i><span id="notificationCounter"></span></span>
-                            </a>
-                            <ul class="dropdown-menu notification-menu" id="messageList" aria-labelledby="navbarDropdown">
+                            </button>
+                            <ul class="dropdown-menu notification-menu" id="messageList" style="min-width: 350px" aria-labelledby="navbarDropdown">
                             </ul>
                         </li>
                     </ul>
