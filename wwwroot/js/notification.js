@@ -29,7 +29,6 @@ connectionNotification.start().then(function () {
         });
         console.log("done");
     });
-    //connectionNotification.send("LoadMessages");
 });
 
 
