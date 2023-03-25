@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using MoneyManagementApp.Models;
 using NToastNotify;
 
@@ -38,9 +39,8 @@ namespace MoneyManagementApp.Pages.MoneyAccount
             }
 
             if (_context.Maccounts != null)
-            {
-                Maccount = await _context.Maccounts
-                .Include(m => m.User).ToListAsync();
+            { 
+                Maccount = await _context.Maccounts.Where(t => t.UserId == Saver.UserId).ToListAsync();
             }
             return Page();
         }

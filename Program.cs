@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MoneyManagementApp.Hubs;
 using MoneyManagementApp.Models;
 using NToastNotify;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSignalR();
 builder.Services.AddDbContext<MoneyManagementV2Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MoneyManagementDB") ?? throw new InvalidOperationException("Connection string 'MoneyManagementDB' not found.")));
 
@@ -46,5 +48,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapHub<NotificationHub>("/hubs/notification");
 
 app.Run();
