@@ -44,7 +44,9 @@ namespace MoneyManagementApp.Pages.Transaction
                 return NotFound();
             }
 
-            var transction = await _context.Transctions.FirstOrDefaultAsync(m => m.Id == id);
+            var transction = await _context.Transctions.Include(t => t.Account)
+                .Include(t => t.Cate)
+                .Include(t => t.User).FirstOrDefaultAsync(m => m.Id == id);
 
             if (transction == null)
             {

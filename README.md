@@ -1,4 +1,5 @@
 ﻿# MoneyManagementApp
+-- Thêm tính năng thông báo khi tài khoản sắp hết tiền
 -- Database for Final Project PRN221 - Web quản lý tiền - MoneyManagement
 Create database MoneyManagementV2
 

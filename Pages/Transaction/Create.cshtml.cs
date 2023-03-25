@@ -69,8 +69,8 @@ namespace MoneyManagementApp.Pages.Transaction
             var maccount = await _context.Maccounts.FirstOrDefaultAsync(m => m.AccountId == Transactione.AccountId);
             if (maccount.Money < Transactione.Money && cate.Type == false)
             {
-                ModelState.AddModelError("Transactione.AccountId", "Tài khoản không đủ.");
-                return Page();
+                _notify.AddErrorToastMessage("Tài khoản không đủ cho giao dịch");
+                return RedirectToPage("./Index");
             };
 
             Transactione.Type = cate.Type;

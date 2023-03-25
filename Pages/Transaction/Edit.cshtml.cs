@@ -94,8 +94,8 @@ namespace MoneyManagementApp.Pages.Transaction
 
             if (maccount.Money < 0)
             {
-                ModelState.AddModelError("Transction.AccountId", "Tài khoản không đủ.");
-                return Page();
+                _notify.AddErrorToastMessage("Tài khoản không đủ cho giao dịch");
+                return RedirectToPage("./Index");
             }
             _context.Attach(maccount).State = EntityState.Modified;
             _context.Attach(Transction).State = EntityState.Modified;

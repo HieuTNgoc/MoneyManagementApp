@@ -3,6 +3,29 @@
 
 <p>
     <a asp-page="Create">Create New</a>
+    <form style="max-width: 400px;">
+        <div class="form-group">
+            <label class="control-label">Select Category</label>
+            <select asp-for="SelectedCategory" class="form-control" asp-items="ViewBag.CateId">
+                <option value="0">All</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Search by title & content:</label>
+            <input type="text" asp-for="SearchString" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Min Money:</label>
+            <input type="int" asp-for="MinVal" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Max Money:</label>
+            <input type="int" asp-for="MaxVal" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Filter" class="btn btn-primary" />
+        </div>
+    </form>
 </p>
 <table class="table">
     <thead>
