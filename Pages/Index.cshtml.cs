@@ -101,11 +101,6 @@ namespace MoneyManagementApp.Pages
             }
             Transctions = await trans.Where(t => t.UserId == Saver.UserId).OrderByDescending(t => t.Datetime).ToListAsync();
 
-            List<Transction> SortedList = Transctions.OrderBy(t => t.Datetime).ToList();
-            SortedList.Sort(delegate (Transction tr1, Transction tr2) { return DateTime.Compare((DateTime)tr1.Datetime, (DateTime)tr2.Datetime); });
-
-            Transctions = SortedList;
-
             var data = new List<ChartObj>();
             int count_income = 0;
             int count_cost = 0;
@@ -132,6 +127,63 @@ namespace MoneyManagementApp.Pages
                     else
                     {
                         count_income++;
+                    }
+                }
+            }
+            if (count_cost == 0)
+            {
+                data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = false });
+            }
+            if (count_income == 0)
+            {
+                data.Add(new ChartObj() { x = DateTime.Now, y = 1, name = "Empty", type = true });
+            }
+            return new JsonResult(data);
+        }
+
+        public async Task<IActionResult> OnGetTranFilter(int AccountId)
+        {
+            string currUser = HttpContext.Session.GetString("Username");
+            if (currUser == null)
+            {
+                return Redirect("/Login");
+            }
+            Saver = await _context.Savers.FirstOrDefaultAsync(m => m.Username.Equals(currUser));
+            if (Saver == null)
+            {
+                return NotFound();
+            }
+            Cates = await _context.Cates.ToListAsync();
+            var trans = from m in _context.Transctions select m;
+            if (AccountId != 0)
+            {
+                trans = trans.Where(m => m.AccountId == AccountId);
+            }
+            Transctions = await trans.Where(t => t.UserId == Saver.UserId).OrderByDescending(t => t.Datetime).ToListAsync();
+
+            var data = new List<ChartObj>();
+            int count_income = 0;
+            int count_cost = 0;
+            foreach (var acc in Cates)
+            {
+                foreach (var tran in Transctions)
+                {
+                    var item = new ChartObj() { x = DateTime.Now, y = 0, name = "", type = false };
+                    if (acc.CateId == tran.CateId)
+                    {
+                        item.y = (int)tran.Money;
+                        item.x = (DateTime)tran.Datetime;
+                        item.name = acc.CateName;
+                        item.type = (bool)acc.Type;
+                        data.Add(item);
+                        if (item.type == false)
+                        {
+                            count_cost++;
+                        }
+                        else
+                        {
+                            count_income++;
+                        }
                     }
                 }
             }

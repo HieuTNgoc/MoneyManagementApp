@@ -42,7 +42,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-page="/Category/Index">Category</a>
                         </li>
-                        
+
                         <li class="nav-item dropdown">
                             <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-check"></i>  @Model.Saver.Username
@@ -50,6 +50,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link text-dark" asp-page="/User/Edit" asp-route-id="@Model.Saver.UserId">Edit Account</a></li>
                                 <li><a class="nav-link text-dark" asp-page="/User/ChangePass" asp-route-id="@Model.Saver.UserId">Change Password</a></li>
+                                <li><a class="nav-link text-dark" asp-page="/Index" asp-page-handler="logout"><i class="bi bi-box-arrow-in-right"></i> Logout</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -59,14 +60,12 @@
                             <ul class="dropdown-menu notification-menu" id="messageList" aria-labelledby="navbarDropdown">
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/Index" asp-page-handler="logout"><i class="bi bi-box-arrow-in-right"></i>  Logout</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <input type="hidden" id="UserId" value="@Model.Saver.UserId" />
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

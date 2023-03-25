@@ -41,6 +41,9 @@ function toogleDataSeries(e) {
 }
 
 function renderAreaChart(cost, income) {
+    console.log(cost);
+    console.log(income);
+    console.log("log v2");
     cost.sort(function (a, b) {
         var keyA = new Date(a.x),
             keyB = new Date(b.x);
@@ -58,7 +61,8 @@ function renderAreaChart(cost, income) {
         if (keyA > keyB) return 1;
         return 0;
     });
-
+    console.log(cost);
+    console.log(income);
     cost.forEach(function (item) {
         item.x = new Date(Date.parse(item.x));
     });
@@ -128,9 +132,32 @@ function initChart() {
             console.log(response);
             console.log(income);
             console.log(cost);
-            console.log("render chart finish");
+            console.log("render pie chart finish");
             renderPieChart("#chartCostContainer", cost, "Cost (chi)");
             renderPieChart("#chartIncomeContainer", income, "Income (Thu)");
+        }
+    });
+
+    $.ajax({
+        type: "GET",
+        url: "/Index?handler=TranFilter",
+        data: { "AccountId": $("#AccountId").val() },
+        success: function (response) {
+            var cost = [];
+            var income = [];
+            response.forEach(function (item) {
+                if (item.type == true) {
+                    income.push(item);
+                } else {
+                    cost.push(item);
+                }
+            });
+            console.log(response);
+            console.log(income);
+            console.log(cost);
+            console.log("render area chart finish");
+            //renderPieChart("#chartCostContainer", cost, "Cost (chi)");
+            //renderPieChart("#chartIncomeContainer", income, "Income (Thu)");
             renderAreaChart(cost, income);
         }
     });

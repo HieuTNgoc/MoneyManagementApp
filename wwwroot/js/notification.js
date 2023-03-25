@@ -11,7 +11,7 @@ connectionNotification.on("LoadNotification", function (message, accountId, coun
     var counter_html = "<span>(" + counter + ")</span>";
     var noti_html = "";
     for (let i = message.length - 1; i >= 0; i--) {  
-        noti_html += '<a class="nav-link text-dark" href="/MoneyAccont/Detail?id=' + accountId[i] + '">Notification - ' + message[i] + '</a>';
+        noti_html += '<a class="nav-link text-dark" href="/MoneyAccount/Details?id=' + accountId[i] + '">Notification - ' + message[i] + '</a>';
     }
     console.log(counter_html);
     console.log(noti_html);
